@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Chicken Tikka · Components · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--gold)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<h1>Chicken Tikka</h1>
+<p class="intro">The house pre-cooked chicken for every curry, marinated overnight and blasted in the pizza oven. Also a standalone starter.</p></div>
+<div class="meta">
+<div class="m"><b>Marinate</b>overnight, ideally 24 h</div><div class="m"><b>Cook</b>minutes, very hot</div><div class="m"><b>Makes</b>1.5 kg (&asymp;3 curries)</div><div class="m"><b>Source</b>Al's Kitchen, house version</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>1.5 kg</b> diced chicken breast</span></label></li>
+<li><label><input type="checkbox"><span><b>150 g</b> natural yoghurt (coconut yoghurt for dairy-free)</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> garlic-ginger paste (Tesco frozen)</span></label></li>
+<li><label><input type="checkbox"><span>Juice of <b>&frac12;</b> lemon</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> honey + a splash of vegetable oil</span></label></li>
+<li><label><input type="checkbox"><span><b>3&frac12; tbsp</b> tandoori masala powder</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> ground coriander + <b>1 tsp</b> ground cumin</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> turmeric</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> Kashmiri chilli powder + <b>1 tsp</b> paprika</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac14; tsp</b> black pepper + <b>&frac12; tsp</b> ground cardamom</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> kasuri methi + <b>1&frac12; tsp</b> dried mint</span></label></li>
+<li><label><input type="checkbox"><span><b>1&frac12; tsp</b> salt</span></label></li>
+<li><label><input type="checkbox"><span>Orange food colouring (TRS brand)</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Mix everything and massage into the chicken. Cover and refrigerate overnight, ideally 24 hours.</li>
+<li>Skewer, and raise the skewers off the pizza-oven deck (across a tray or rack) so heat circulates.</li>
+<li>Blast and pull: very hot, short time, turning once or twice. Char outside, juicy inside; lingering "to cook through" dries it out.</li>
+<li>Keep the blackened edges; that char is the flavour the sauce can't fake.</li>
+<li>For curries, pull slightly underdone; it finishes in the sauce.</li>
+</ol>
+<div class="note"><b>Used by:</b> every BIR curry that says "pre-cooked chicken", the <a href="../recipes/chicken-jalfrezi.html">Jalfrezi</a> and <a href="../recipes/chicken-tikka-saag-balti.html">Saag Balti</a> included. Freezes in curry-sized 550 g portions. Source: <a href="https://www.youtube.com/watch?v=iTk6TbgmNNo">Al's Kitchen (YouTube)</a>.</div>
+</div></div>
+<footer>Component &middot; part of the <a href="../index.html">household cookbook</a></footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

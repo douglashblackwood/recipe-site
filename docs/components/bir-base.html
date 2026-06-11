@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>BIR Base · Components · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--gold)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<h1>BIR Base <span class="muted">(pur&eacute;e + onion water)</span></h1>
+<p class="intro">The two-part foundation of every house curry. One Ninja pressure-cook makes enough for two curries.</p></div>
+<div class="meta">
+<div class="m"><b>Active</b>15 min</div><div class="m"><b>Pressure</b>12-15 min</div><div class="m"><b>Yields</b>2 curries</div><div class="m"><b>Used by</b>all BIR curries</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>1 kg</b> onions, quartered</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> medium carrot</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> small piece cassia / cinnamon</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> star anise</span></label></li>
+<li><label><input type="checkbox"><span>Water, just to cover</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Everything into the Ninja, water just to cover. Pressure cook 12-15 minutes.</li>
+<li>Fish out the whole spices and discard.</li>
+<li>Blend the solids (onion + carrot) to a thick, smooth <b>pur&eacute;e</b>: ~900 g, i.e. 450 g per curry.</li>
+<li>Keep the cooking liquid as the <b>onion water</b>: ~400 ml per curry; top up with hot kettle water if short.</li>
+</ol>
+<div class="note"><b>The two jobs:</b> the pur&eacute;e is the bit you fry hard to deep amber (the flavour); the onion water is the liquid, added hot after the fry. Mild creamy curries (korma, pasanda) are the exception: fry only to pale golden. Full doctrine in <a href="../bir-curry-system.html">The BIR Curry System</a>. Both parts freeze well.</div>
+</div></div>
+<footer>Component &middot; part of the <a href="../index.html">household cookbook</a></footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

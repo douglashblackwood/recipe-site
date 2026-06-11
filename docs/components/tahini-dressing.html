@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Tahini Dressing · Components · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--gold)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:drop"></iconify-icon></div>
+<h1>Tahini Dressing</h1>
+<p class="intro">Creamy, garlicky, dairy-free. Made for the shawarma salad; makes anything leftover taste deliberate.</p></div>
+<div class="meta">
+<div class="m"><b>Time</b>5 min</div><div class="m"><b>Keeps</b>~1 week, fridge</div><div class="m"><b>Used by</b>Shawarma Tahini</div><div class="m"><b>Source</b>Brian Lagerstrom</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>125 g</b> tahini</span></label></li>
+<li><label><input type="checkbox"><span><b>25 ml</b> lemon juice</span></label></li>
+<li><label><input type="checkbox"><span><b>15 ml</b> white vinegar</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> honey</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> garlic clove, pressed</span></label></li>
+<li><label><input type="checkbox"><span><b>30 ml</b> extra virgin olive oil</span></label></li>
+<li><label><input type="checkbox"><span><b>75 ml</b> water</span></label></li>
+<li><label><input type="checkbox"><span>Salt, to taste</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Stir everything together until creamy. It will seize first, then loosen; keep stirring.</li>
+<li>Adjust with water to a pourable consistency, and salt to taste.</li>
+</ol>
+<div class="note"><b>Worth doubling:</b> it keeps a week and upgrades roast veg, grain bowls, leftover chicken and tomorrow's lunch. Used by the <a href="../recipes/shawarma-tahini.html">Shawarma Tahini</a> salad.</div>
+</div></div>
+<footer>Component &middot; part of the <a href="../index.html">household cookbook</a></footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>
