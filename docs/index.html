@@ -6,7 +6,7 @@
 <div class="kicker">Household Cookbook</div>
 <h1>Blackwood Kitchen</h1>
 <p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
-<p class="count" id="count">29 recipes &middot; 6 components &middot; the BIR curry reference</p>
+<p class="count" id="count">29 recipes &middot; 5 components &middot; the BIR curry reference</p>
 </div>
 
 <a class="hero" href="bir-curry-system.html">
@@ -212,12 +212,6 @@
 <p class="count" style="margin:2px 0 4px">The sub-recipes the mains depend on. Make ahead, jar or freeze.</p>
 <div class="grid">
 
-<a class="rcard" style="--cat:var(--gold)" data-tags="component" href="components/bir-base.html"><div class="body">
-<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
-<p class="t">BIR Base</p><p class="chef">Pur&eacute;e + onion water &middot; feeds every curry</p>
-<div class="pills"><span class="pill time">Ninja pressure &middot; 2 curries/batch</span></div>
-</div></a>
-
 <a class="rcard" style="--cat:var(--gold)" data-tags="component" href="components/bir-mix-powder.html"><div class="body">
 <div class="icon"><iconify-icon icon="ph:jar"></iconify-icon></div>
 <p class="t">BIR Mix Powder</p><p class="chef">The house Indian curry blend</p>
@@ -262,7 +256,7 @@ function apply(){
     const txtOk=!s||c.textContent.toLowerCase().includes(s);
     const show=tagOk&&txtOk;c.classList.toggle('hidden',!show);if(show)n++;
   });
-  count.textContent=(f==='all'&&!s)?'29 recipes · 6 components · the BIR curry reference':n+' of '+cards.length+' shown';
+  count.textContent=(f==='all'&&!s)?'29 recipes · 5 components · the BIR curry reference':n+' of '+cards.length+' shown';
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
