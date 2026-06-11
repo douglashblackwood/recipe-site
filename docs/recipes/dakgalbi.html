@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Dakgalbi · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--chicken)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:fire"></iconify-icon></div>
+<h1>Dakgalbi</h1>
+<p class="intro">Korean spicy chicken stir-fry with rice cakes and sweet potato, cooked in one big pan everyone eats from. The hottest of the Korean trials, fajitas-level table theatre.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>25 min</div><div class="m"><b>Cook</b>15 min</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>Beyond Kimchee</div><div class="m"><b>Status</b>Trial</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li class="grp">The pan</li>
+<li><label><input type="checkbox"><span><b>450 g</b> boneless chicken thighs, diced</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> oil</span></label></li>
+<li><label><input type="checkbox"><span><b>225 g</b> Korean rice cake sticks (tteok), soaked 10 min</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac14;-&frac12;</b> green cabbage, diced</span></label></li>
+<li><label><input type="checkbox"><span><b>8-10</b> perilla leaves, sliced (Asian supermarket; or basil + mint)</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac12;</b> large onion, sliced</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> sweet potato, sliced &frac12; cm</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> toasted sesame seeds</span></label></li>
+<li class="grp">Sauce</li>
+<li><label><input type="checkbox"><span><b>3 tbsp</b> gochujang + <b>2 tbsp</b> gochugaru</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> soy sauce + <b>2 tbsp</b> mirin</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> garlic cloves, minced + <b>1 tsp</b> ginger powder</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> curry powder + <b>1 tbsp</b> sugar</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> sesame oil + <b>1 tsp</b> pepper (+ optional <b>1 tbsp</b> corn syrup/honey)</span></label></li>
+<li class="grp">Optional finale</li>
+<li><label><input type="checkbox"><span>Fried rice in the pan juices: 2 cups cooked rice + reserved 1 tbsp sauce + seaweed + sesame</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Mix the sauce; reserve 1 tbsp if you're doing the fried-rice finale.</li>
+<li>Soak the rice cakes 10 minutes; drain.</li>
+<li>Big pan or cast iron, medium-high: arrange chicken, vegetables, rice cakes and half the perilla. Pour the sauce over.</li>
+<li>Stir-fry 6-7 minutes until the chicken is cooked and sweet potato tender, splashing in water if it sticks.</li>
+<li>Finish with the remaining perilla and sesame seeds. Pan goes to the table.</li>
+<li>Finale: when the pan is nearly empty, fry the rice in the leftovers with the reserved sauce until it crisps, 2 minutes.</li>
+</ol>
+<div class="note"><b>Trial notes:</b> the spiciest of the six trials; for the kids, set aside marinated-but-unsauced chicken and veg before the gochujang goes in and cook their corner separately, or save this one for an adults' night. The crispy fried-rice finale is the bit everyone remembers.</div>
+<p class="srcline">Source: <a href="https://www.beyondkimchee.com/dak-galbi/">Beyond Kimchee</a></p>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>
