@@ -6,7 +6,7 @@
 <div class="kicker">Household Cookbook</div>
 <h1>Blackwood Kitchen</h1>
 <p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
-<p class="count" id="count">29 recipes &middot; 5 components &middot; the BIR curry reference</p>
+<p class="count" id="count">29 recipes &middot; 3 components &middot; the BIR curry reference</p>
 </div>
 
 <a class="hero" href="bir-curry-system.html">
@@ -230,18 +230,6 @@
 <div class="pills"><span class="pill time">12 tbsp &middot; 6 months</span></div>
 </div></a>
 
-<a class="rcard" style="--cat:var(--gold)" data-tags="component" href="components/tahini-dressing.html"><div class="body">
-<div class="icon"><iconify-icon icon="ph:drop"></iconify-icon></div>
-<p class="t">Tahini Dressing</p><p class="chef">Shawarma salad + everything else</p>
-<div class="pills"><span class="pill time">5 min &middot; 1 week</span></div>
-</div></a>
-
-<a class="rcard" style="--cat:var(--gold)" data-tags="component" href="components/nicoise-vinaigrette.html"><div class="body">
-<div class="icon"><iconify-icon icon="ph:flask"></iconify-icon></div>
-<p class="t">Ni&ccedil;oise Vinaigrette</p><p class="chef">Anchovy-Dijon &middot; keeps 2 weeks</p>
-<div class="pills"><span class="pill time">5 min &middot; 2 weeks</span></div>
-</div></a>
-
 </div>
 
 <footer>Blackwood Kitchen &middot; generated from the meal-planner recipe files &middot; <a href="bir-curry-system.html">The BIR Curry System</a></footer>
@@ -256,7 +244,7 @@ function apply(){
     const txtOk=!s||c.textContent.toLowerCase().includes(s);
     const show=tagOk&&txtOk;c.classList.toggle('hidden',!show);if(show)n++;
   });
-  count.textContent=(f==='all'&&!s)?'29 recipes · 5 components · the BIR curry reference':n+' of '+cards.length+' shown';
+  count.textContent=(f==='all'&&!s)?'29 recipes · 3 components · the BIR curry reference':n+' of '+cards.length+' shown';
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
