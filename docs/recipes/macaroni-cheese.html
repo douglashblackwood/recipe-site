@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Macaroni Cheese · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--pasta)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<h1>Macaroni Cheese</h1>
+<p class="intro">Classic roux-based mac and cheese with a grilled cheddar top.</p></div>
+<div class="meta">
+<div class="m"><b>Source</b>Home recipe</div><div class="m"><b>Status</b>Retired</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>250 g</b> macaroni</span></label></li>
+<li><label><input type="checkbox"><span><b>50 g</b> butter</span></label></li>
+<li><label><input type="checkbox"><span><b>50 g</b> flour</span></label></li>
+<li><label><input type="checkbox"><span><b>200 g</b> cheddar cheese, grated</span></label></li>
+<li><label><input type="checkbox"><span><b>500 ml</b> milk</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Cook the macaroni according to the packet. Drain and set aside.</li>
+<li>Melt the butter in a large saucepan over medium heat.</li>
+<li>Add the flour and stir continuously for 1-2 minutes to make a roux.</li>
+<li>Gradually add the milk, whisking constantly to prevent lumps.</li>
+<li>Keep stirring until the sauce thickens.</li>
+<li>Off the heat, stir in most of the cheddar, reserving some for the top.</li>
+<li>Stir the macaroni through the cheese sauce.</li>
+<li>Transfer to a baking dish, sprinkle the remaining cheese on top.</li>
+<li>Optional: grill or bake until golden and bubbly.</li>
+<li>Serve hot.</li>
+</ol>
+<div class="note"><b>Retired:</b> incompatible with the house no-heavy-dairy rule. Kept for the record (7 historical cooks).</div>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

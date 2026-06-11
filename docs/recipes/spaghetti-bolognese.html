@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Spaghetti Bolognese · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--pasta)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<h1>Spaghetti Bolognese</h1>
+<p class="intro">House bolognese: soffritto base, slow 40-minute simmer, finished with parmesan.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>15 min</div><div class="m"><b>Cook</b>45 min</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>House recipe</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>2 tbsp</b> olive oil</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> large onion (200 g), finely chopped</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> large carrot (100 g), finely chopped</span></label></li>
+<li><label><input type="checkbox"><span><b>2 sticks</b> celery (100 g), finely chopped</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> garlic cloves, minced</span></label></li>
+<li><label><input type="checkbox"><span><b>500 g</b> beef mince</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> tomato pur&eacute;e</span></label></li>
+<li><label><input type="checkbox"><span><b>1 &times; 400 g</b> tin tomatoes</span></label></li>
+<li><label><input type="checkbox"><span><b>200 ml</b> beef stock</span></label></li>
+<li><label><input type="checkbox"><span><b>100 ml</b> red wine (optional)</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> dried oregano + <b>1</b> bay leaf</span></label></li>
+<li><label><input type="checkbox"><span>Salt and pepper</span></label></li>
+<li><label><input type="checkbox"><span><b>400 g</b> spaghetti</span></label></li>
+<li><label><input type="checkbox"><span>Parmesan, to serve</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Heat the oil in a large pan or casserole over medium heat.</li>
+<li>Add the onion, carrot and celery (the soffritto). Cook gently 8-10 minutes until soft.</li>
+<li>Add the garlic; 1 minute until fragrant.</li>
+<li>Up to medium-high, add the mince, break it up and brown all over, 5-7 minutes.</li>
+<li>Stir in the tomato pur&eacute;e, 1-2 minutes.</li>
+<li>Add the tinned tomatoes (breaking them up), stock and wine if using.</li>
+<li>Add oregano and bay leaf, season.</li>
+<li>Simmer low, partially covered, 30-40 minutes, stirring occasionally, until thick.</li>
+<li>Cook the spaghetti al dente towards the end.</li>
+<li>Drain, reserving a cup of pasta water. Remove the bay leaf.</li>
+<li>Toss the spaghetti through the sauce, loosening with pasta water as needed.</li>
+<li>Serve with freshly grated parmesan.</li>
+</ol>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

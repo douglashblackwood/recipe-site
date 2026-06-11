@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Blackwood Kitchen · Recipes</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body><div class="wrap">
+
+<div class="site-head">
+<div class="kicker">Household Cookbook</div>
+<h1>Blackwood Kitchen</h1>
+<p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
+<p class="count" id="count">25 recipes + the BIR curry reference</p>
+</div>
+
+<a class="hero" href="bir-curry-system.html">
+<div class="kicker">Featured reference</div>
+<div class="display">The BIR Curry System</div>
+<p>Base gravy, mix powder, pizza-oven tikka and the decoder that turns one foundation into every British Indian restaurant curry on the menu.</p>
+<iconify-icon icon="ph:cooking-pot"></iconify-icon>
+</a>
+
+<div class="toolbar">
+<input class="search" id="q" type="search" placeholder="Search recipes or chefs&hellip;" autocomplete="off">
+<div class="chips" id="chips">
+<button class="chip on" data-f="all">All</button>
+<button class="chip" data-f="curry">Curry</button>
+<button class="chip" data-f="quick">Quick</button>
+<button class="chip" data-f="chicken">Chicken</button>
+<button class="chip" data-f="fish">Fish</button>
+<button class="chip" data-f="pasta">Pasta</button>
+<button class="chip" data-f="veggie">Veggie</button>
+<button class="chip" data-f="kid">Kid friendly</button>
+</div>
+</div>
+
+<div class="grid" id="grid">
+
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry chicken" href="recipes/chicken-jalfrezi.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Chicken Jalfrezi</p><p class="chef">Al's Kitchen</p>
+<div class="pills"><span class="pill time">1 h 20</span><span class="pill">curry</span><span class="pill">hot</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/chicken-skewers-amazing-satay-sauce-and-fiery-noodles.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<p class="t">Chicken Skewers, Satay Sauce &amp; Fiery Noodles</p><p class="chef">Jamie Oliver</p>
+<div class="pills"><span class="pill time">55 min</span><span class="pill">chicken</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry chicken" href="recipes/chicken-tikka-saag-balti.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Chicken Tikka Saag Balti</p><p class="chef">Matt Hudson</p>
+<div class="pills"><span class="pill time">1 h 20</span><span class="pill">curry</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken quick kid" href="recipes/fajitas.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:pepper"></iconify-icon></div>
+<p class="t">Fajitas</p><p class="chef">House freestyle</p>
+<div class="pills"><span class="pill time">quick</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish kid" href="recipes/fish-and-chips.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish"></iconify-icon></div>
+<p class="t">Fish and Chips</p><p class="chef">Ethan Chlebowski</p>
+<div class="pills"><span class="pill time">1 h 10</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--veggie)" data-tags="veggie quick kid" href="recipes/frittata-with-courgette-and-feta.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:egg"></iconify-icon></div>
+<p class="t">Frittata with Courgette and Feta</p><p class="chef">RecipeTin Eats</p>
+<div class="pills"><span class="pill time">20 min</span><span class="pill">veggie</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish" href="recipes/grilled-salmon-with-lemongrass-and-soy.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish-simple"></iconify-icon></div>
+<p class="t">Grilled Salmon with Lemongrass and Soy</p><p class="chef">Jamie Oliver</p>
+<div class="pills"><span class="pill time">10 min + 1 h marinade</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta veggie kid" href="recipes/macaroni-cheese.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Macaroni Cheese</p><p class="chef">Home recipe</p>
+<div class="pills"><span class="pill">veggie</span><span class="pill retired">retired</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish quick kid" href="recipes/parmesan-crumbed-fish.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish-simple"></iconify-icon></div>
+<p class="t">Parmesan Crumbed Fish</p><p class="chef">RecipeTin Eats</p>
+<div class="pills"><span class="pill time">12 min</span><span class="pill retired">retired</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta veggie" href="recipes/pasta-alla-norma.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Pasta Alla Norma</p><p class="chef">Yotam Ottolenghi</p>
+<div class="pills"><span class="pill time">1 h 45</span><span class="pill">veggie</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--veggie)" data-tags="veggie" href="recipes/pizza.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:pizza"></iconify-icon></div>
+<p class="t">Pizza</p><p class="chef">House recipe</p>
+<div class="pills"><span class="pill time">5&frac34; h (mostly proving)</span><span class="pill">veggie</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta kid" href="recipes/pregnant-jools-pasta.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Pregnant Jools Pasta</p><p class="chef">Jamie Oliver</p>
+<div class="pills"><span class="pill time">50 min</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish quick" href="recipes/quick-asian-fishcakes.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish-simple"></iconify-icon></div>
+<p class="t">Quick Asian Fishcakes</p><p class="chef">Jamie Oliver</p>
+<div class="pills"><span class="pill time">35 min</span><span class="pill">quick</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry fish" href="recipes/red-curry-with-king-prawns.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Red Curry with King Prawns</p><p class="chef">Rosa's Thai Cafe</p>
+<div class="pills"><span class="pill time">50 min</span><span class="pill">curry</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken kid" href="recipes/roast-chicken-dinner.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<p class="t">Roast Chicken Dinner</p><p class="chef">Family recipe</p>
+<div class="pills"><span class="pill time">1 h 45</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta kid" href="recipes/sausage-and-courgette-carbonara.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Sausage and Courgette Carbonara</p><p class="chef">Jamie Oliver (adapted)</p>
+<div class="pills"><span class="pill time">50 min</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/shawarma-tahini.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<p class="t">Shawarma Tahini</p><p class="chef">Brian Lagerstrom</p>
+<div class="pills"><span class="pill time">1 h 30</span><span class="pill">salad</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta kid" href="recipes/spaghetti-bolognese.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Spaghetti Bolognese</p><p class="chef">House recipe</p>
+<div class="pills"><span class="pill time">1 h</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--pasta)" data-tags="pasta fish quick" href="recipes/spaghetti-puttanesca-with-tuna.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Spaghetti Puttanesca with Tuna</p><p class="chef">House recipe</p>
+<div class="pills"><span class="pill time">30 min</span><span class="pill">quick</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--veggie)" data-tags="veggie" href="recipes/the-best-vegan-chili.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fire"></iconify-icon></div>
+<p class="t">The Best Vegan Chili</p><p class="chef">Rainbow Plant Life</p>
+<div class="pills"><span class="pill time">2 h</span><span class="pill">vegan</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/thai-chilli-and-basil-chicken.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:pepper"></iconify-icon></div>
+<p class="t">Thai Chilli and Basil Chicken</p><p class="chef">Gordon Ramsay</p>
+<div class="pills"><span class="pill time">1 h 10</span><span class="pill">hot</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken kid" href="recipes/turkey-and-courgette-burgers.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:hamburger"></iconify-icon></div>
+<p class="t">Turkey and Courgette Burgers</p><p class="chef">Yotam Ottolenghi</p>
+<div class="pills"><span class="pill time">50 min</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken pasta kid" href="recipes/turkey-meatballs.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Turkey Meatballs</p><p class="chef">Gordon Ramsay</p>
+<div class="pills"><span class="pill time">1 h 30</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish" href="recipes/un-composed-nicoise-salad.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish"></iconify-icon></div>
+<p class="t">Un-Composed Ni&ccedil;oise Salad</p><p class="chef">Serious Eats</p>
+<div class="pills"><span class="pill time">1 h 30</span><span class="pill">salad</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry veggie kid" href="recipes/vegan-red-lentil-curry.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Vegan Red Lentil Curry</p><p class="chef">Rainbow Plant Life</p>
+<div class="pills"><span class="pill time">1 h 20</span><span class="pill">vegan</span><span class="pill">kid friendly</span></div>
+</div></a>
+
+</div>
+
+<footer>Blackwood Kitchen &middot; generated from the meal-planner recipe files &middot; <a href="bir-curry-system.html">The BIR Curry System</a></footer>
+</div>
+<script>
+const chips=[...document.querySelectorAll('.chip')],cards=[...document.querySelectorAll('.rcard')],q=document.getElementById('q'),count=document.getElementById('count');
+let f='all';
+function apply(){
+  const s=q.value.trim().toLowerCase();let n=0;
+  cards.forEach(c=>{
+    const tagOk=f==='all'||c.dataset.tags.split(' ').includes(f);
+    const txtOk=!s||c.textContent.toLowerCase().includes(s);
+    const show=tagOk&&txtOk;c.classList.toggle('hidden',!show);if(show)n++;
+  });
+  count.textContent=(f==='all'&&!s)?cards.length+' recipes + the BIR curry reference':n+' of '+cards.length+' recipes';
+}
+chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
+q.addEventListener('input',apply);
+</script>
+</body></html>

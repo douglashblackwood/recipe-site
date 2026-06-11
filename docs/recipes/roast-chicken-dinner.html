@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Roast Chicken Dinner · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--chicken)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<h1>Roast Chicken Dinner</h1>
+<p class="intro">The family Sunday roast: herb-butter chicken, proper crispy potatoes, roast veg and pan gravy.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>15 min</div><div class="m"><b>Cook</b>90 min</div><div class="m"><b>Serves</b>4-6</div><div class="m"><b>Source</b>Family recipe</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li class="grp">Roast chicken</li>
+<li><label><input type="checkbox"><span><b>1.5-2 kg</b> whole chicken</span></label></li>
+<li><label><input type="checkbox"><span><b>30 ml</b> olive oil</span></label></li>
+<li><label><input type="checkbox"><span><b>50 g</b> butter, softened</span></label></li>
+<li><label><input type="checkbox"><span><b>4-6</b> garlic cloves</span></label></li>
+<li><label><input type="checkbox"><span><b>5-6 sprigs</b> fresh thyme</span></label></li>
+<li><label><input type="checkbox"><span><b>2-3 sprigs</b> fresh rosemary</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> lemon</span></label></li>
+<li><label><input type="checkbox"><span>Salt and black pepper</span></label></li>
+<li class="grp">Roast potatoes</li>
+<li><label><input type="checkbox"><span><b>1 kg</b> Maris Piper potatoes</span></label></li>
+<li><label><input type="checkbox"><span><b>60 ml</b> olive oil</span></label></li>
+<li><label><input type="checkbox"><span>Salt + <b>1 tsp</b> dried rosemary</span></label></li>
+<li class="grp">Vegetables (optional)</li>
+<li><label><input type="checkbox"><span><b>400 g</b> carrots</span></label></li>
+<li><label><input type="checkbox"><span><b>300 g</b> parsnips</span></label></li>
+<li><label><input type="checkbox"><span><b>15 ml</b> olive oil</span></label></li>
+<li class="grp">Gravy</li>
+<li><label><input type="checkbox"><span><b>500 ml</b> chicken stock</span></label></li>
+<li><label><input type="checkbox"><span><b>100 ml</b> red wine (optional)</span></label></li>
+<li><label><input type="checkbox"><span><b>15 g</b> cornflour + <b>30 ml</b> water</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2>
+<h3>Chicken</h3><ol class="steps">
+<li>Preheat the oven to 200&deg;C (180&deg;C fan). Take the chicken out of the fridge 30 minutes ahead; pat dry.</li>
+<li>Mix the softened butter with minced garlic, chopped thyme and rosemary; season well.</li>
+<li>Loosen the breast skin and spread half the herb butter underneath; rub the rest over the outside.</li>
+<li>Halve the lemon and put it in the cavity with the remaining herb sprigs.</li>
+<li>Into a roasting tin, drizzle with oil, season generously. Roast 20 minutes per 500 g plus 20 minutes (~90 minutes for 1.5 kg).</li>
+<li>Check the thigh juices run clear (75&deg;C in the thickest part). Rest 15-20 minutes before carving.</li>
+</ol>
+<h3>Potatoes</h3><ol class="steps">
+<li>Peel, cut into large chunks (~5 cm), parboil in salted water 10 minutes, drain well and rough up the edges in the colander.</li>
+<li>Heat the oil in a roasting tin in the oven until very hot (~5 minutes).</li>
+<li>Add the potatoes to the hot oil, turn to coat, season with salt and rosemary. Roast 50-60 minutes, turning halfway.</li>
+</ol>
+<h3>Vegetables</h3><ol class="steps">
+<li>Peel and chunk the carrots and parsnips, toss in oil, salt and pepper, and roast alongside the chicken for the final 45 minutes.</li>
+</ol>
+<h3>Gravy</h3><ol class="steps">
+<li>With the chicken resting, pour off excess fat from the tin, keeping ~2 tbsp and all the sticky bits.</li>
+<li>Tin on the hob, medium heat: add the wine (if using) and scrape up the fond. Add stock and simmer.</li>
+<li>Stir in the cornflour paste; simmer 5-10 minutes to thicken. Season; strain if you want it smooth.</li>
+</ol>
+<div class="note"><b>Notes:</b> for extra-crispy skin start at 220&deg;C for 20 minutes then drop to 180&deg;C. Save the carcass for stock. Leftovers: sandwiches, salads, chicken pie.</div>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIR Curry Reference</title>
+<style>
+  :root{
+    --ink:#1f2733; --muted:#5b6675; --line:#e3e7ee; --bg:#fbfcfe;
+    --accent:#b5471f; --accent-soft:#fff3ec; --gold:#c98a2b; --gold-soft:#fdf6e8;
+    --green:#2f7d56; --green-soft:#eef7f1; --red:#b23b3b; --red-soft:#fdeef0;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); margin:0; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:48px 28px 80px;}
+  header.hd{border-bottom:3px solid var(--accent); padding-bottom:20px; margin-bottom:8px;}
+  header.hd .kicker{text-transform:uppercase; letter-spacing:.14em; font-size:.72rem; color:var(--accent); font-weight:700;}
+  h1{font-size:2.1rem; margin:.15em 0 .1em; letter-spacing:-.01em;}
+  .sub{color:var(--muted); font-size:1.02rem; max-width:680px;}
+  .meta{color:var(--muted); font-size:.8rem; margin-top:10px;}
+  h2{font-size:1.32rem; margin:46px 0 6px; padding-top:10px; letter-spacing:-.01em;}
+  h2 .num{color:var(--accent); font-weight:800; margin-right:.4em;}
+  h3{font-size:1.04rem; margin:26px 0 4px; color:var(--ink);}
+  p{margin:.5em 0;}
+  .lead{color:var(--muted); margin-top:2px; margin-bottom:14px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin:16px 0; box-shadow:0 1px 2px rgba(20,30,50,.03);}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.92rem;}
+  th,td{text-align:left; padding:9px 11px; border-bottom:1px solid var(--line); vertical-align:top;}
+  thead th{background:#f4f6fa; font-size:.74rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); border-bottom:2px solid var(--line);}
+  tbody tr:hover{background:#fafbfd;}
+  .pill{display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap;}
+  .h-mild{background:var(--green-soft); color:var(--green);}
+  .h-med{background:var(--gold-soft); color:var(--gold);}
+  .h-hot{background:var(--accent-soft); color:var(--accent);}
+  .h-vhot{background:var(--red-soft); color:var(--red);}
+  .ok{color:var(--green); font-weight:700;}
+  .no{color:var(--red); font-weight:700;}
+  .steps{counter-reset:step; list-style:none; padding:0; margin:10px 0;}
+  .steps > li{position:relative; padding:14px 0 14px 52px; border-bottom:1px solid var(--line);}
+  .steps > li:last-child{border-bottom:none;}
+  .steps > li:before{
+    counter-increment:step; content:counter(step);
+    position:absolute; left:0; top:12px; width:34px; height:34px; border-radius:50%;
+    background:var(--accent); color:#fff; font-weight:800; font-size:.95rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .steps .ph{font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent);}
+  .callout{border-left:4px solid var(--gold); background:var(--gold-soft); padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0;}
+  .callout.key{border-left-color:var(--accent); background:var(--accent-soft);}
+  .callout.diet{border-left-color:var(--green); background:var(--green-soft);}
+  .callout .t{font-weight:700; display:block; margin-bottom:2px;}
+  .swatch{display:flex; align-items:center; gap:14px; margin:12px 0;}
+  .bar{height:26px; flex:1; border-radius:6px; background:linear-gradient(90deg,#f2e2c4,#e7c98e,#cf9a4f,#a9622a,#6e3a18);}
+  .bar-lab{display:flex; justify-content:space-between; font-size:.74rem; color:var(--muted); margin-top:4px;}
+  ul.tight{margin:.4em 0; padding-left:1.2em;}
+  ul.tight li{margin:.25em 0;}
+  code{background:#eef1f6; padding:1px 6px; border-radius:5px; font-size:.86em;}
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:8px 26px;}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr;}}
+  .src{font-size:.84rem; color:var(--muted);}
+  .src a{color:var(--accent); text-decoration:none;}
+  .src a:hover{text-decoration:underline;}
+  .tag{font-size:.7rem; color:var(--muted); font-weight:600;}
+  footer{margin-top:50px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p style="margin:0 0 14px"><a href="index.html" style="color:#b5471f;font-weight:600;text-decoration:none;font-size:.9rem">&larr; All recipes</a></p>
+
+<header class="hd">
+  <div class="kicker">British Indian Restaurant · Kitchen Reference</div>
+  <h1>The BIR Curry System</h1>
+  <p class="sub">A complete BIR method: a pressure-cooked two-component base, one house mix powder, a hard-and-fast fry, and a decoder for turning that single foundation into any curry on the menu.</p>
+  <div class="meta">Based on Al's Kitchen, Misty Ricardo, The Curry Guy (Dan Toombs), Glebe Kitchen &amp; Kris Dhillon</div>
+</header>
+
+<div class="callout key">
+  <span class="t">The whole idea in one line</span>
+  Same base + same mix powder &rarr; a small, defined set of add-ons per curry. A restaurant plates fifteen curries fast because they are not cooking fifteen recipes, they are applying fifteen small "diffs" to two shared foundations.
+</div>
+
+<!-- PART 1 -->
+<h2><span class="num">1</span>The base &mdash; two components, two jobs</h2>
+<p class="lead">The Al's Kitchen approach splits what most recipes lump together. Keep them separate, they do different work.</p>
+
+<div class="grid2">
+  <div class="card">
+    <h3>① The purée &mdash; the flavour base</h3>
+    <p>Thick, concentrated blended onion + carrot. <strong>This is the bit you fry hard.</strong> Because it is a paste, not a watery gravy, it genuinely caramelises (the textbook "keep the base pale" rule is for the dilute one-pot gravy, not this one).</p>
+  </div>
+  <div class="card">
+    <h3>② The onion water &mdash; the liquid</h3>
+    <p>The aromatic cooking liquid the onions and carrot pressure-cooked in. It replaces plain water or stock. Added <strong>hot</strong>, <em>after</em> the purée is fried, then boiled down to the final consistency.</p>
+  </div>
+</div>
+
+<h3>Making the base (batch it &mdash; enough for 2 curries)</h3>
+<p>Into a pressure cooker: <strong>1 kg onions</strong> (quartered), <strong>1 medium carrot</strong>, <strong>1 small piece cassia/cinnamon</strong>, <strong>1 star anise</strong>, water just to cover. Pressure cook <strong>12-15 min</strong>. Then separate:</p>
+<p class="src">Yield check: 1 kg of onions gives roughly <strong>900 g purée</strong> (two curries at 450 g each) and a variable amount of onion water. If the onion water runs short of the ~400 ml per curry, top it up with hot water from the kettle, it is aromatic liquid, not a sacred stock.</p>
+<ul class="tight">
+  <li>Fish out the whole spices. Blend the <strong>solids</strong> (onion + carrot) to a thick smooth <strong>purée</strong>.</li>
+  <li>Keep the <strong>cooking liquid</strong> as the reserved <strong>onion water</strong>.</li>
+</ul>
+<div class="callout">
+  <span class="t">Why these tweaks</span>
+  <strong>Carrot</strong> = natural sweetness + the orange restaurant colour (so you can cut the added sugar). One medium carrot per kilo of onion, no more or it tastes of carrot. <strong>Star anise + onion</strong> is a savoury, almost meaty pairing (the pho trick), but it dominates fast, so one only. These live mostly in the base, so every curry inherits a faint warm-spice background, which is pleasant but means the base is "aromatic" rather than perfectly neutral.
+</div>
+
+<h3>The purée colour target</h3>
+<div class="swatch">
+  <div style="flex:1">
+    <div class="bar"></div>
+    <div class="bar-lab"><span>raw / pale</span><span>golden</span><span>deep amber · russet ✓</span><span>dark · bitter ✗</span></div>
+  </div>
+</div>
+<ul class="tight">
+  <li><strong>Heat:</strong> medium-high, good slug of oil, open pan (no lid, no cartouche, a cartouche steams, the opposite of what you want).</li>
+  <li><strong>Look for:</strong> it tightens and darkens to <strong>deep amber / russet / light chestnut</strong>, and <strong>the oil splits out and pools</strong>. The oil breaking is the real "done" signal, more reliable than colour alone.</li>
+  <li><strong>Smell:</strong> sweet, nutty, caramelised. Sharp or acrid = gone too far.</li>
+  <li><strong>Time:</strong> <strong>10-20 min</strong>. Eight minutes only softens, the depth comes from pushing past "looks cooked".</li>
+  <li><strong>Rhythm:</strong> stir &rarr; let it catch &rarr; scrape the fond &rarr; repeat. Constant stirring prevents browning, walking away burns it.</li>
+  <li><strong>The exception:</strong> the mild creamy curries (<strong>korma, pasanda</strong>) want a <strong>pale golden</strong> purée, not deep amber. Caramelised base would muddy their colour and fight the cardamom-coconut sweetness. Everything else on the menu gets the full hard fry.</li>
+</ul>
+<div class="callout diet">
+  <span class="t">Equipment note</span>
+  Use a <strong>pressure cooker / multi-cooker for the softening</strong>. But do the <strong>hard fry in a wide, heavy pan / karahi on the hottest hob ring</strong>. A multi-cooker's sauté is moderate and its deep narrow pot traps moisture, so it steams rather than fries. If staying one-pot: max sear, small batches, patience.
+</div>
+
+<!-- PART 2 -->
+<h2><span class="num">2</span>The mix powder &mdash; the house blend</h2>
+<p class="lead">Make one jar, use it for everything. It replaces the per-recipe spice juggling. The <em>building</em> spice (fried early), as distinct from garam masala, the <em>finishing</em> spice (added late, off heat).</p>
+<div class="card">
+  <table>
+    <thead><tr><th>Spice</th><th>Consensus ratio</th><th>Misty Ricardo</th><th>Curry Guy</th></tr></thead>
+    <tbody>
+      <tr><td>Ground coriander</td><td><strong>2</strong></td><td>1</td><td>3</td></tr>
+      <tr><td>Ground cumin</td><td><strong>2</strong></td><td>1</td><td>3</td></tr>
+      <tr><td>Turmeric</td><td><strong>2-3</strong></td><td>1.5</td><td>3</td></tr>
+      <tr><td>Paprika</td><td><strong>2</strong></td><td>0.5</td><td>3</td></tr>
+      <tr><td>Mild Madras curry powder</td><td><strong>2-3</strong></td><td>1.5</td><td>4</td></tr>
+      <tr><td>Garam masala</td><td><strong>1</strong></td><td>0.25</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <p class="src">Tablespoons make a useful jar. Grind your own cumin &amp; coriander seed if you can, do <strong>not</strong> toast them (shortens shelf life). Keeps pungent ~6 weeks in an airtight jar away from light. Discard if it smells stale or sweet.</p>
+</div>
+
+<!-- PART 3 -->
+<h2><span class="num">3</span>Chicken tikka &mdash; the third foundation</h2>
+<p class="lead">The pre-cooked protein pillar. Cooked separately in a wood-fired pizza oven, the closest thing to a tandoor you can have at home, then dropped into any curry off the base. <strong>This is the house pre-cooked chicken</strong>: any recipe below that says "pre-cooked chicken" means this tikka (the char only adds).</p>
+
+<div class="card">
+  <h3>The marinade &mdash; Al's Kitchen recipe <span class="tag">(1 kg chicken breast)</span></h3>
+  <div class="twocol">
+    <ul class="tight">
+      <li>1 kg chicken breast, in chunks</li>
+      <li>½ mug natural yoghurt (&asymp;150 ml; <strong>coconut yoghurt for dairy-free</strong>)</li>
+      <li>2 tbsp mustard oil (or vegetable oil)</li>
+      <li>2 tbsp mango chutney</li>
+      <li>2 tsp mint sauce</li>
+    </ul>
+    <ul class="tight">
+      <li>2 tbsp ground coriander · 2 tbsp ground cumin</li>
+      <li>2 tbsp garam masala</li>
+      <li>1 tbsp garlic powder · 1 tbsp ginger powder</li>
+      <li>1 tbsp mustard powder · 1 tsp salt</li>
+      <li>1 tsp orange food colouring (optional, skip it)</li>
+    </ul>
+  </div>
+  <p><strong>Method:</strong> mix everything, massage into the chicken, cover and refrigerate <strong>overnight, ideally 24 hours</strong>. Skewer and cook hot and fast (pizza oven technique below).</p>
+  <p class="src">Source: <a href="https://alskitchen.uk/recipes/kb/4-chicken-tikka">Al's Kitchen chicken tikka</a> · <a href="https://www.youtube.com/watch?v=iTk6TbgmNNo">the YouTube version</a>. The mint sauce is the vinegar-based jar type (dairy-free), not raita.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Why the pizza oven wins</h3>
+    <p>Restaurant tikka is <em>defined</em> by the tandoor: 400-500&deg;C, live-fire char, a kiss of woodsmoke. A domestic oven or grill can't touch it. A pizza oven can, so this is more authentic than most home cooks manage.</p>
+  </div>
+  <div class="card">
+    <h3>Technique</h3>
+    <ul class="tight">
+      <li><strong>Raise it off the deck</strong> (skewers across a tray / a rack) so heat circulates and chars more than one face. Turn once or twice.</li>
+      <li><strong>Blast and pull.</strong> Very hot, short time, char outside, juicy inside. Sitting long to "cook through" dries it out.</li>
+      <li><strong>Keep the char.</strong> The blackened edges are the flavour you can't fake in the sauce.</li>
+    </ul>
+  </div>
+</div>
+<div class="callout diet">
+  <span class="t">Dairy-free note</span>
+  Al's tikka marinade is <strong>yoghurt-based</strong>, so as-is it is not dairy-free. For a dairy-free curry (the dairy-free korma or tikka masala), marinate in <strong>coconut / dairy-free yoghurt</strong> instead, it chars just the same. Otherwise the tikka is a drop-in for tikka masala, korma, makhani, a Saag Balti, or a standalone starter.
+</div>
+
+<!-- PART 4 -->
+<h2><span class="num">4</span>The basic cook &mdash; step by step</h2>
+<p class="lead">The "mother" cook (a plain medium chicken curry, serves ~4). Branch it with the decoder in Part 5. Everything slow is front-loaded, so this live cook is a fast, hot 15 minutes.</p>
+
+<div class="callout">
+  <span class="t">House standards &mdash; read once, applies everywhere</span>
+  <ul class="tight">
+    <li><strong>Garlic-ginger paste:</strong> the Tesco frozen paste, straight from the freezer into the pan (it thaws in seconds at frying heat). "2 tbsp" in every recipe means 2 tbsp once melted, roughly 5-6 of the frozen portions.</li>
+    <li><strong>Chilli powder:</strong> the house jar is <strong>Kashmiri</strong>, which is mild (more colour than fire). All chilli quantities below assume standard hot Indian chilli powder, so with Kashmiri, <strong>roughly double</strong> the stated amount for the same heat. For the genuinely hot dishes (Madras, Vindaloo, Phal), Kashmiri alone won't get there, top up with fresh green chillies, a hot chilli powder, or Naga pickle. The upside: Kashmiri makes every curry the right colour without food colouring.</li>
+    <li><strong>Salt:</strong> <strong>1 tsp per serves-4 curry</strong>, in with the onion water at Phase 3 (early salt seasons the sauce as it reduces). Taste at the end and adjust, remembering the sauce concentrates as it boils down.</li>
+  </ul>
+</div>
+
+<ol class="steps">
+  <li><span class="ph">Phase 0 · ahead</span> Have the <strong>mix powder</strong> jarred and the <strong>base</strong> made (purée + onion water separated). <strong>Pre-cook the chicken</strong>: in this house that means the <strong>Part 3 chicken tikka</strong>, marinated the day before and blasted in the pizza oven. Set aside. <em>(Making ahead to reheat? Pull it slightly underdone.)</em></li>
+  <li><span class="ph">Phase 1 · the Maillard fry</span> Wide pan, hottest ring, 4 tbsp oil. Add <strong>~400-500 g purée</strong> (about half the batch). Fry medium-high <strong>10-15 min</strong> to deep amber, oil splitting. This is where the flavour is made.</li>
+  <li><span class="ph">Phase 2 · bloom</span> Splash more oil, fry <strong>2 tbsp garlic-ginger paste</strong> 1 min. Stir in <strong>2-3 tbsp mix powder</strong> + <strong>1 tbsp tomato purée</strong> loosened with a little water. Fry hard 60-90 sec, keep it moving so the powder doesn't catch.</li>
+  <li><span class="ph">Phase 3 · build</span> Add the <strong>per-curry differentiator</strong> now (basic version: ½-1 tsp chilli powder). Pour in <strong>~400 ml onion water, hot</strong> (cold stalls the fry). Stir smooth. Add the <strong>pre-cooked chicken</strong>, <strong>1 tsp salt</strong> + pinch of sugar.</li>
+  <li><span class="ph">Phase 4 · reduce &amp; finish</span> Boil hard, lid off, <strong>5-8 min</strong> to consistency. Off the heat: <strong>1 tsp garam masala</strong>, <strong>1 tsp kasoori methi</strong> (crushed in your palms), <strong>fresh coriander</strong>. Taste, adjust salt / sugar / acid.</li>
+  <li><span class="ph">Phase 5 · serve or rest</span> Serve now, <strong>or</strong> cool, rest overnight and <strong>reheat gently</strong> (low simmer, not another hard fry). Resting usually wins. <strong>Never slow-cook the finished curry.</strong></li>
+</ol>
+
+<!-- PART 5 -->
+<h2><span class="num">5</span>The decoder &mdash; one base, every curry</h2>
+<p class="lead">Add-ons are per single curry (serves ~4), on top of the basic cook. Heat comes from how much chilli powder goes in at Phase 3.</p>
+<div class="callout key">
+  <span class="t">Read this first &mdash; the three layers</span>
+  Every curry is built from three layers, not two. <strong>(1) Mix powder</strong> does ~80% of the spicing in <em>all</em> of them. <strong>(2) The finishing trio</strong> &mdash; <strong>garam masala + kasoori methi + fresh coriander</strong> &mdash; goes into nearly every savoury curry at the end (korma &amp; pasanda being the mild exceptions, which lean on cardamom instead of methi). <strong>(3) The extras below</strong> are only what is <em>different</em> on top of those two shared layers. So a tikka masala is base + mix powder + the trio + the extras listed, not just almond and sugar.
+</div>
+<div class="card" style="padding:6px 10px;">
+<table>
+  <thead><tr><th>Curry</th><th>Heat</th><th>Signature add-ons (on top of base + mix powder)</th><th>Dairy / heat</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Korma</strong> <span class="tag">(dairy-free)</span></td><td><span class="pill h-mild">Mild</span></td><td><strong>½ tsp ground cardamom + a little cinnamon/cassia</strong> · 3-4 tbsp ground almonds · 50 g creamed coconut (or 100 ml coconut cream) · 1-2 tsp sugar · little/no chilli <span class="tag">(cardamom replaces methi here)</span></td><td><span class="ok">✓</span> swap cream &rarr; coconut</td></tr>
+    <tr><td><strong>Pasanda</strong></td><td><span class="pill h-mild">Mild</span></td><td><strong>¼ tsp cardamom</strong> · 3 tbsp ground almonds · 100 ml coconut cream · pinch sugar <span class="tag">(cardamom not methi)</span></td><td><span class="ok">✓</span> dairy-free route</td></tr>
+    <tr><td><strong>Tikka Masala</strong></td><td><span class="pill h-mild">Mild</span></td><td><strong>1-2 tsp Kashmiri chilli / paprika</strong> · 150 g passata · 100 ml coconut cream · 1 tbsp ground almond · 1-2 tsp sugar · <strong>extra kasoori methi</strong> · tandoori-cooked chicken</td><td><span class="ok">✓</span> dairy-free route</td></tr>
+    <tr><td><strong>Dopiaza</strong></td><td><span class="pill h-mild">Mild</span></td><td>1 onion in chunks, fried separately, folded in late · keep it sweet</td><td><span class="ok">✓</span> dairy-free &amp; mild</td></tr>
+    <tr><td><strong>Dhansak</strong></td><td><span class="pill h-med">Medium</span></td><td>100 g cooked red lentils (masoor) · 1-2 tsp sugar · 1 tbsp lemon (sweet &amp; sour)</td><td><span class="ok">✓</span> mild-ish</td></tr>
+    <tr><td><strong>Bhuna</strong></td><td><span class="pill h-med">Medium</span></td><td>Less onion water (reduce harder, thick clinging sauce) · extra 1 tsp mix powder · 1 tsp methi</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Saag</strong> <span class="tag">(Balti base)</span></td><td><span class="pill h-med">Medium</span></td><td>200 g spinach (fresh or frozen) folded in</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Vegetable</strong> <span class="tag">(sabzi)</span></td><td><span class="pill h-mild">Mild-med</span></td><td>Par-boiled potato + cauliflower · frozen peas · ½ pepper in chunks · optional tin of chickpeas · chilli to taste</td><td><span class="ok">✓</span> vegan</td></tr>
+    <tr><td><strong>Karahi</strong></td><td><span class="pill h-med">Medium</span></td><td>100 g tomato · ½ pepper · onion · extra garam masala · keep it dry-ish</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Rogan Josh</strong></td><td><span class="pill h-med">Medium</span></td><td>100 g tomato · ½ red pepper · 1 tsp Kashmiri chilli (colour) · extra garam masala · tomato + coriander garnish</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Pathia</strong></td><td><span class="pill h-hot">Med-hot</span></td><td>1 tbsp tamarind paste · 1-2 tsp jaggery/sugar · 1-2 tsp chilli (hot-sweet-sour)</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Jalfrezi</strong></td><td><span class="pill h-hot">Med-hot</span></td><td>2-3 green chillies · ½ green + ½ red pepper · onion · <strong>½ tbsp tandoori masala + 1-2 tsp Kashmiri chilli</strong> · fry dry/thick (stir-fry style)</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Ceylon</strong></td><td><span class="pill h-hot">Hot</span></td><td>100 ml coconut milk · 1 tbsp lemon/lime · 1 tsp chilli</td><td><span class="ok">✓</span> no dairy</td></tr>
+    <tr><td><strong>Madras</strong></td><td><span class="pill h-hot">Hot</span></td><td>1-2 tsp chilli powder · 100 g tomato · squeeze of lemon</td><td><span class="ok">✓</span></td></tr>
+    <tr><td><strong>Vindaloo</strong></td><td><span class="pill h-vhot">Very hot</span></td><td>2-3 tsp chilli · 1-2 tbsp vinegar · extra garlic · diced potato · black pepper</td><td><span class="no">✗</span> very hot</td></tr>
+    <tr><td><strong>Phal</strong></td><td><span class="pill h-vhot">Extreme</span></td><td>Maximum chilli (scotch bonnet). Novelty heat.</td><td><span class="no">✗</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout diet">
+  <span class="t">The dairy-free route to a mild curry</span>
+  The mild curries (korma, pasanda, tikka masala) are exactly the ones blocked by cream, which is why a dairy-free repertoire tends to skew to the hotter non-creamy ones. But in BIR, korma's body comes from <strong>coconut + ground almond</strong> first, the dairy cream is just a top-up. Swap the cream for <strong>coconut cream + ground almond</strong> and you get a genuine dairy-free korma that is also mild and child-friendly, off the same base.
+</div>
+
+<!-- PART 6 -->
+<h2><span class="num">6</span>Full recipes &mdash; every curry spelled out</h2>
+<p class="lead">Each is complete and standalone, serves ~4, built on the made-ahead base (purée + onion water), mix powder and pre-cooked protein. <strong>Bold</strong> = what makes this curry distinct, everything else is the shared spine. Method follows the 6-phase basic cook unless the note says otherwise.</p>
+<div class="callout key">
+  <span class="t">Two tiers &mdash; why some have a "Dish spices" line and some don't</span>
+  <strong>Tier 1 (mix-powder-driven):</strong> Madras, Bhuna, Jalfrezi, Pathia, Phal honestly <em>are</em> spiced base + heat + the defining add. The base already carries cumin, coriander, turmeric, paprika, Madras powder &amp; garam masala, so they don't need much more. That's real takeaway practice.
+  <strong>Tier 2 (own spice signature):</strong> Korma, Dhansak, Saag, Karahi, Ceylon, Rogan Josh and Vindaloo have a genuine dish-specific blend that lifts them above "samey". Those carry a <strong>Dish spices</strong> line, bloom these with the mix powder at Phase 2 (or temper whole seeds in the oil first where noted).
+</div>
+
+<h3 style="color:var(--green)">Mild</h3>
+<div class="grid2">
+  <div class="card">
+    <h3>Korma <span class="pill h-mild">Mild</span> <span class="tag">serves 4 · dairy-free</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g onion-carrot purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>½ tsp ground cardamom · ¼ tsp ground cinnamon/cassia</strong></li>
+      <li><strong>no tomato, no chilli</strong> · 300 ml onion water (hot)</li>
+      <li><strong>3-4 tbsp ground almonds · 50 g creamed coconut · 1-2 tsp sugar</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: ½ tsp garam masala · fresh coriander <span class="tag">(no methi)</span></li>
+    </ul>
+    <p class="src"><em>Keep it pale, go easy on the purée colour. Stir in almond + coconut + sugar and simmer gently. Sweet and creamy, no heat.</em></p>
+  </div>
+  <div class="card">
+    <h3>Pasanda <span class="pill h-mild">Mild</span> <span class="tag">serves 4 · dairy-free</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>¼ tsp ground cardamom</strong></li>
+      <li><strong>no chilli</strong> · 300 ml onion water (hot)</li>
+      <li><strong>3 tbsp ground almonds · 100 ml coconut cream · 1 tsp sugar</strong></li>
+      <li>550 g pre-cooked chicken (traditionally lamb) · 1 tsp salt</li>
+      <li>Finish: ½ tsp garam masala · coriander <span class="tag">(no methi)</span></li>
+    </ul>
+    <p class="src"><em>As korma but cream-forward and nuttier. Very mild and rich.</em></p>
+  </div>
+  <div class="card">
+    <h3>Tikka Masala <span class="pill h-mild">Mild</span> <span class="tag">serves 4 · dairy-free</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>1-2 tsp Kashmiri chilli / paprika</strong></li>
+      <li><strong>150 g passata</strong> + 1 tbsp tomato purée · 350 ml onion water (hot)</li>
+      <li><strong>100 ml coconut cream · 1 tbsp ground almond · 1-2 tsp sugar</strong></li>
+      <li><strong>550 g tandoori chicken tikka</strong> · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · <strong>1 tsp kasoori methi</strong> · coriander</li>
+    </ul>
+    <p class="src"><em>Bloom chilli + mix powder + passata, then add cream + almond + sugar + methi. Drop in the tikka last. Red, creamy, lightly sweet.</em></p>
+  </div>
+  <div class="card">
+    <h3>Dopiaza <span class="pill h-mild">Mild</span> <span class="tag">serves 4</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>½ tsp mild chilli powder · 1 tbsp tomato purée + 100 g chopped tomato · 400 ml onion water (hot)</li>
+      <li><strong>1 onion in chunky pieces, fried separately till golden, set aside</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt · pinch sugar</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Fold the fried onion chunks in near the end for sweetness and texture. The "two onions" dish.</em></p>
+  </div>
+</div>
+
+<h3 style="color:var(--gold)">Medium</h3>
+<div class="grid2">
+  <div class="card">
+    <h3>Bhuna <span class="pill h-med">Medium</span> <span class="tag">serves 4</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · <strong>3 tbsp mix powder (extra)</strong></li>
+      <li>1-1.5 tsp chilli powder · <strong>2 tbsp tomato purée + 100 g chopped tomato</strong></li>
+      <li><strong>only 250 ml onion water (hot) &mdash; keep it tight</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt · pinch sugar</li>
+      <li>Finish: 1 tsp garam masala · <strong>1.5 tsp methi</strong> · coriander</li>
+    </ul>
+    <p class="src"><em>Reduce hard to a thick, clinging, almost-dry sauce. Deep and spice-forward.</em></p>
+  </div>
+  <div class="card">
+    <h3>Dhansak <span class="pill h-med">Medium</span> <span class="tag">serves 4 · sweet &amp; sour</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>1-1.5 tsp chilli powder · 1 tbsp tomato purée · 400 ml onion water (hot)</li>
+      <li><strong>Dish spices: 1 tsp toasted ground cumin · ¼ tsp cinnamon · pinch ground clove · pinch ground cardamom · ¼ tsp ground fenugreek</strong></li>
+      <li><strong>100 g cooked red lentils (masoor) · 1-2 tsp sugar · 1 tbsp lemon juice</strong> (optional pineapple chunks)</li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Stir the lentils through the finished sauce. Balance to sweet (sugar) / sour (lemon) / hot (chilli).</em></p>
+  </div>
+  <div class="card">
+    <h3>Saag <span class="pill h-med">Medium</span> <span class="tag">serves 4 · Balti style</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>1 tsp chilli powder · 1 tbsp tomato purée · 350 ml onion water (hot)</li>
+      <li><strong>Dish spices: 1 tsp whole cumin seed (tempered in the oil first) · 2 extra garlic cloves · 1-2 green chillies</strong></li>
+      <li><strong>200 g spinach (fresh or defrosted frozen)</strong> (optional 1 tbsp coconut cream to finish)</li>
+      <li>550 g pre-cooked chicken or tikka · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Temper the whole cumin in the oil before the purée. Stir the spinach through near the end. With tikka this is a Saag Balti.</em></p>
+  </div>
+  <div class="card">
+    <h3>Karahi <span class="pill h-med">Medium</span> <span class="tag">serves 4 · dry-ish</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>1-1.5 tsp chilli powder · <strong>2 tbsp tomato purée + 100 g chopped tomato</strong></li>
+      <li><strong>Dish spices: 1 tsp coarsely crushed coriander seed · 1 tsp cumin (part whole) · ½ tsp crushed black pepper</strong></li>
+      <li><strong>½ green pepper + ½ onion in chunks</strong> · only 300 ml onion water (hot)</li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: <strong>1.5 tsp garam masala</strong> · 1 tsp methi · coriander · <strong>julienned ginger on top</strong></li>
+    </ul>
+    <p class="src"><em>Keep it dry-ish and fresh, garam-masala forward. Scatter raw ginger to serve.</em></p>
+  </div>
+  <div class="card">
+    <h3>Vegetable Curry <span class="pill h-mild">Mild-med</span> <span class="tag">serves 4 · vegan</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>½-1 tsp chilli powder (drop to zero for the kids) · 1 tbsp tomato purée + 100 g chopped tomato · 350 ml onion water (hot)</li>
+      <li><strong>1 large potato, diced &amp; par-boiled · ½ small cauliflower in florets, par-boiled · 100 g frozen peas · ½ pepper in chunks</strong> (optional: 1 tin chickpeas, drained)</li>
+      <li>1 tsp salt · pinch sugar</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Par-boil the potato and cauliflower ahead (they are the "pre-cooked protein" of this dish) so the live cook stays a fast 15 minutes. Peas and pepper go in raw at the reduction. Works as a main or a side to any curry above.</em></p>
+  </div>
+  <div class="card">
+    <h3>Rogan Josh <span class="pill h-med">Medium</span> <span class="tag">serves 4</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>1-2 tsp Kashmiri chilli (colour) · 2 tbsp tomato purée + 150 g chopped tomato · ½ red pepper</strong></li>
+      <li><strong>Dish spices: ½ tsp ground fennel · 2 cloves · small piece cinnamon · 2 green cardamom · 1 bay leaf</strong></li>
+      <li>400 ml onion water (hot)</li>
+      <li>550 g pre-cooked chicken or lamb · 1 tsp salt · pinch sugar</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · <strong>tomato wedges + coriander garnish</strong></li>
+    </ul>
+    <p class="src"><em>Tomato and red-pepper led, deep red. Garnish with fresh tomato and coriander.</em></p>
+  </div>
+  <div class="card">
+    <h3>Pathia <span class="pill h-hot">Med-hot</span> <span class="tag">serves 4 · hot-sweet-sour</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>2 tsp chilli powder</strong> · 1 tbsp tomato purée · 400 ml onion water (hot)</li>
+      <li><strong>1 tbsp tamarind paste · 1-2 tsp jaggery / sugar</strong></li>
+      <li>550 g pre-cooked chicken or prawn · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Build the heat, then balance tamarind sour against jaggery sweet. The hotter cousin of dhansak.</em></p>
+  </div>
+</div>
+
+<p class="src">Related but separate: the household's <strong>Vegan Red Lentil Curry</strong> (Rainbow Plant Life, in the meal planner) is a traditional one-pot, not a BIR cook, and stays as it is. The BIR lentil slot here is the <strong>dhansak</strong>.</p>
+
+<h3 style="color:var(--accent)">Hot &amp; extreme</h3>
+<div class="grid2">
+  <div class="card">
+    <h3>Jalfrezi <span class="pill h-hot">Med-hot</span> <span class="tag">serves 4</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>½ tbsp tandoori masala · 1-2 tsp Kashmiri chilli · 2-3 green chillies (sliced)</strong></li>
+      <li><strong>½ green + ½ red pepper + ½ onion in chunks (charred if you like)</strong> · 2 tbsp tomato purée</li>
+      <li>only 300 ml onion water (hot) &mdash; keep it dry</li>
+      <li>550 g pre-cooked chicken · 1 tsp salt · pinch sugar</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Stir-fry style, dry and punchy. Char the peppers and onion for the signature bite.</em></p>
+  </div>
+  <div class="card">
+    <h3>Ceylon <span class="pill h-hot">Hot</span> <span class="tag">serves 4 · dairy-free</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li><strong>2 tsp chilli powder</strong> · 1 tbsp tomato purée · 350 ml onion water (hot)</li>
+      <li><strong>Dish spices: swap 1 tbsp of the mix powder for 1-2 tsp roasted Ceylon/Sri Lankan curry powder · a sprig of curry leaves</strong></li>
+      <li><strong>100 ml coconut milk · 1 tbsp lemon/lime juice</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Coconut + citrus + heat. Bright and hot.</em></p>
+  </div>
+  <div class="card">
+    <h3>Madras <span class="pill h-hot">Hot</span> <span class="tag">serves 4</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · <strong>2-3 tbsp mix powder</strong></li>
+      <li><strong>2-3 tsp chilli powder · 2 tbsp tomato purée + 100 g chopped tomato</strong></li>
+      <li>400 ml onion water (hot) · <strong>squeeze of lemon</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Hot and tangy, tomato-forward. The benchmark "big kick" curry.</em></p>
+  </div>
+  <div class="card">
+    <h3>Vindaloo <span class="pill h-vhot">Very hot</span> <span class="tag">serves 4 · very hot</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2-3 tbsp mix powder</li>
+      <li><strong>3-4 tsp chilli powder · ½ tsp black pepper · 2 extra garlic cloves</strong></li>
+      <li><strong>Dish spices: pinch each ground clove, cinnamon &amp; cumin · ¼ tsp mustard seed (the Goan warm-spice backbone)</strong></li>
+      <li>2 tbsp tomato purée · 400 ml onion water (hot)</li>
+      <li><strong>1-2 tbsp vinegar · 1 potato, diced &amp; pre-cooked</strong></li>
+      <li>550 g pre-cooked chicken (or pork, traditional) · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Fierce and tangy. The vinegar and extra garlic are as defining as the chilli.</em></p>
+  </div>
+  <div class="card">
+    <h3>Phal <span class="pill h-vhot">Extreme</span> <span class="tag">serves 4 · novelty heat</span></h3>
+    <ul class="tight">
+      <li>Build exactly as Madras, then go to the limit:</li>
+      <li><strong>4-6 tsp hot chilli powder · 2-3 fresh scotch bonnet / naga · optional 1 tbsp naga pickle</strong></li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>Heat for heat's sake. Ventilate the kitchen, handle chillies with care.</em></p>
+  </div>
+  <div class="card">
+    <h3>Naga <span class="pill h-vhot">Very hot</span> <span class="tag">serves 4 · Al's Kitchen favourite</span></h3>
+    <ul class="tight">
+      <li>4 tbsp oil · 450 g purée · 2 tbsp garlic-ginger paste · 2 tbsp mix powder</li>
+      <li>1-2 tsp chilli powder · 2 tbsp tomato purée + 100 g chopped tomato · 350 ml onion water (hot)</li>
+      <li><strong>1-2 tbsp Naga pickle (Mr Naga), stirred in at the reduction</strong> · pinch sugar to balance</li>
+      <li>550 g pre-cooked chicken · 1 tsp salt</li>
+      <li>Finish: 1 tsp garam masala · 1 tsp methi · coriander</li>
+    </ul>
+    <p class="src"><em>The pickle is the point, not just the heat. Hot, tangy, garlicky and deep. Build the Naga up gradually to taste.</em></p>
+  </div>
+</div>
+
+<div class="callout key">
+  <span class="t">Naga pickle &mdash; the secret weapon (works across the menu)</span>
+  Beyond its own dish, <strong>¼-1 tsp of Naga pickle</strong> stirred into a <strong>Jalfrezi, Madras, Bhuna or Pathia</strong> at the reduction stage adds heat <em>plus</em> tang, garlic and savoury depth that dry chilli powder can't. A flavour move, not just a heat move, this is what Al's Kitchen is doing. Ferociously concentrated, so go small and build, balance with a pinch of sugar. <strong>Leave it out of any mild portions.</strong> Dairy-free (no dairy issue beyond the heat).
+</div>
+
+<!-- PART 7 -->
+<h2><span class="num">7</span>Technique rules to live by</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>The two fries are different</h3>
+    <p>Don't conflate them. The <strong>purée</strong> fries dark (that's the Maillard). The <strong>finished sauce</strong> is built fast and bright on top. Burnt purée is bitter and unrecoverable, stop when the oil splits.</p>
+  </div>
+  <div class="card">
+    <h3>Hard and fast, not slow</h3>
+    <p>BIR is engineered for a 5-10 min final cook. Slow-cooking the assembled curry dulls the fried-spice hit and dries the chicken. Slow cooking is for <em>traditional</em> from-scratch curries, a different method.</p>
+  </div>
+  <div class="card">
+    <h3>Rest beats instant</h3>
+    <p>Cook hard, then cool, rest overnight, reheat <strong>gently</strong>. Fat-soluble spices keep infusing and harshness mellows. If reheating, pull the chicken slightly underdone first so it doesn't toughen.</p>
+  </div>
+  <div class="card">
+    <h3>Mix powder vs garam masala</h3>
+    <p><strong>Mix powder</strong> goes in early and gets fried (building). <strong>Garam masala</strong> goes in late, off the heat (finishing). Keeping these two roles separate is the bit most home cooks miss.</p>
+  </div>
+</div>
+
+<!-- WHO TO STUDY -->
+<h2><span class="num">8</span>Who to study next</h2>
+<div class="card">
+  <ul class="tight">
+    <li><strong>Glebe Kitchen</strong> (Romain) &mdash; the <em>why</em>, food-science first. The most analytical of the sources. <span class="tag">glebekitchen.com</span></li>
+    <li><strong>Misty Ricardo</strong> (Richard Sayce) &mdash; the most systematic method (base + mix powder + pre-cooked pillars). "Curry Compendium" is the rigorous reference. <span class="tag">mistyricardo.com</span></li>
+    <li><strong>The Curry Guy</strong> (Dan Toombs) &mdash; breadth and approachability, the most prominent UK name. <span class="tag">greatcurryrecipes.net</span></li>
+    <li><strong>Kris Dhillon</strong>, <em>The Curry Secret</em> (1989) &mdash; the originator who first published the base-gravy method.</li>
+    <li><strong>Latif's Inspired</strong> &mdash; a working restaurant head chef, for the most authentic feel.</li>
+    <li><strong>Al's Kitchen</strong> (Al Constantinou) &mdash; the boiled-and-blended school. <span class="tag">alskitchen.uk</span></li>
+  </ul>
+</div>
+
+<footer>
+  <p class="src"><strong>Sources:</strong>
+    <a href="https://alskitchen.uk/recipes/kb/6-base-gravy">Al's Kitchen base gravy</a> ·
+    <a href="https://glebekitchen.com/indian-restaurant-curry-base/">Glebe Kitchen curry base</a> ·
+    <a href="https://mistyricardo.com/base-gravy-recipe/">Misty Ricardo base gravy</a> ·
+    <a href="https://mistyricardo.com/mix-powder-recipe/">Misty Ricardo mix powder</a> ·
+    <a href="https://greatcurryrecipes.net/2013/12/31/make-indian-restaurant-style-curry-sauce-large-batch/">Curry Guy base sauce</a> ·
+    <a href="https://greatcurryrecipes.net/2020/04/26/mixed-powder/">Curry Guy mixed powder</a> ·
+    <a href="https://curryculture.co.uk/types-of-curry/">Curry Culture types of curry</a>
+  </p>
+  <p>BIR Curry Reference · v2 · house standards: Tesco frozen garlic-ginger paste, Kashmiri chilli, tikka as the pre-cooked chicken</p>
+</footer>
+
+</div>
+</body>
+</html>

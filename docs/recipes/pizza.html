@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Pizza · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--veggie)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:pizza"></iconify-icon></div>
+<h1>Pizza</h1>
+<p class="intro">House dough: Tipo 00 with diastatic malt, autolysed, KitchenAid-kneaded, rested 4-5 hours. Makes 4 pizzas.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>15-20 min</div><div class="m"><b>Prove + cook</b>~5&frac12; h</div><div class="m"><b>Makes</b>4 pizzas</div><div class="m"><b>Source</b>House recipe</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li class="grp">Dough</li>
+<li><label><input type="checkbox"><span><b>400 g</b> Tipo 00 flour</span></label></li>
+<li><label><input type="checkbox"><span><b>8 g</b> diastatic malt powder</span></label></li>
+<li><label><input type="checkbox"><span><b>225 ml</b> warm water (autolyse)</span></label></li>
+<li><label><input type="checkbox"><span><b>50 ml</b> warm water (yeast activation)</span></label></li>
+<li><label><input type="checkbox"><span><b>7 g</b> instant yeast</span></label></li>
+<li><label><input type="checkbox"><span><b>2 g</b> sugar</span></label></li>
+<li><label><input type="checkbox"><span><b>5 g</b> fine sea salt</span></label></li>
+<li><label><input type="checkbox"><span><b>15 g</b> olive oil (optional)</span></label></li>
+<li class="grp">Topping</li>
+<li><label><input type="checkbox"><span><b>300 g</b> Mutti Classic pizza sauce (~75 g per pizza)</span></label></li>
+<li><label><input type="checkbox"><span><b>320 g</b> fresh mozzarella (~80 g per pizza)</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Autolyse: mix the flour, malt powder and 225 ml warm water until just combined. Rest 20-30 minutes.</li>
+<li>Activate the yeast: mix yeast, sugar and 50 ml warm water (27-29&deg;C). Leave 5 minutes until frothy.</li>
+<li>Add the salt to the autolysed flour mixture.</li>
+<li>With the dough hook, add the yeast mixture (and optional olive oil) to the dough. Mix on speed 2 until combined.</li>
+<li>Knead on speed 4 for 5-7 minutes until smooth and elastic.</li>
+<li>Cover the bowl and rest the dough 20 minutes at room temperature.</li>
+<li>Divide into 4 balls of about 180-200 g.</li>
+<li>Rest the balls, covered, at room temperature for 4-5 hours.</li>
+<li>Preheat the oven and pizza stone to maximum (~230&deg;C+).</li>
+<li>Stretch a ball into a base and par-bake on the stone for 3-5 minutes until slightly firm.</li>
+<li>Spread ~75 g sauce and top with ~80 g mozzarella.</li>
+<li>Bake 7-10 minutes until the crust is golden and the cheese bubbles.</li>
+<li>Optional: 1-2 minutes under the grill for char.</li>
+<li>Rest 2-3 minutes to set the cheese before slicing.</li>
+<li>Finish with a drizzle of extra virgin olive oil and fresh herbs if you like.</li>
+</ol>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>

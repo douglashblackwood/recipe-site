@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Spaghetti Puttanesca with Tuna · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--pasta)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<h1>Spaghetti Puttanesca with Tuna</h1>
+<p class="intro">Punchy storecupboard pasta: olives, capers, anchovy and chilli with flaked tuna. Deliberately bold; not one for the kids.</p></div>
+<div class="meta">
+<div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>House recipe</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>400 g</b> spaghetti</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tins</b> tuna in olive oil, drained</span></label></li>
+<li><label><input type="checkbox"><span><b>1 &times; 400 g</b> tin chopped tomatoes</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> capers, drained</span></label></li>
+<li><label><input type="checkbox"><span><b>100 g</b> pitted black olives, halved</span></label></li>
+<li><label><input type="checkbox"><span><b>4</b> garlic cloves, finely sliced</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> red chilli, finely chopped (or &frac12; tsp flakes)</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> anchovy fillets (optional but traditional)</span></label></li>
+<li><label><input type="checkbox"><span>Olive oil</span></label></li>
+<li><label><input type="checkbox"><span>Fresh parsley, chopped</span></label></li>
+<li><label><input type="checkbox"><span>Salt and black pepper</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li><b>Pasta:</b> boil in well-salted water until al dente.</li>
+<li><b>Sauce:</b> meanwhile, heat 3 tbsp olive oil over medium. Garlic and chilli in, 1-2 minutes until fragrant, not browned.</li>
+<li><b>Aromatics:</b> add the anchovies and let them dissolve into the oil. Capers in for another minute.</li>
+<li><b>Build:</b> add tomatoes and olives. Simmer 8-10 minutes until slightly thickened. Season.</li>
+<li><b>Tuna:</b> flake in and fold gently; heat through 2-3 minutes.</li>
+<li><b>Combine:</b> reserve a cup of pasta water, drain, toss the spaghetti through the sauce, loosening as needed.</li>
+<li><b>Finish:</b> scatter with parsley and serve with extra black pepper.</li>
+</ol>
+<div class="note"><b>Notes:</b> easy cook, one-pan sauce. For a milder version reduce or omit the chilli and anchovies. Any long pasta works.</div>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+</body></html>
