@@ -18,9 +18,10 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 - `docs/style.css` is the shared design system (cookwell.com-inspired: Fraunces + Inter, warm cream, category colours). `docs/index.html` has the search/filter JS; each recipe page has a small inline script for tickable ingredients and tap-to-complete steps (persisted in localStorage).
 - `docs/bir-curry-system.html` is a copy of `bir-curry-reference/index.html` with a back link injected after `<div class="wrap">`.
 
-## Current state (11/06/2026)
+## Current state (23/06/2026)
 
 - **29 recipes + 3 components + the BIR reference.** Frittata (feta rejected) and Parmesan Crumbed Fish removed; 6 Korean/Vietnamese trial recipes added (green "trial" pills), Jalfrezi + Saag Balti converged onto the BIR system, pizza upgraded (cold ferment, pizza oven).
+- **Best-version pass (23/06/2026):** a free-improvements red-team and a best-version audit (named/primary sources) were applied across the book. 20 recipes upgraded (e.g. pressure-cooker bolognese, pizza dough fix, dry-brine + spatchcock roast chicken, sumac burger sauce, panko meatballs, vodka + rice-flour fish batter, Korean/Vietnamese trial refinements, seed-oil swaps); the previously-blank Fajitas page was researched and written. Reports + rationale in `meal-planner/notes/recipe-redteam-2026-06-23.html` and `recipe-best-version-audit-2026-06-23.html`. Owner overrides kept: Thai chicken keeps its veg, Norma keeps parmesan, shawarma keeps breast. Method: red-team (executed well?) then best-version audit (right recipe?), now the default for cookbook work.
 - **Components rule (Douglas's):** a component gets its own page in `docs/components/` only if MULTIPLE recipes depend on it. Current three: BIR Mix Powder, Chicken Tikka, Homemade Chilli Powder. Single-recipe sub-parts stay inline; the BIR base stays in the BIR reference only.
 - **Trials' meal-planner paperwork** (`.md` files, recipes-index, recipe-discovery registration) is deliberately deferred until first cook; see memory `recipe_critique_pending.md`.
 
