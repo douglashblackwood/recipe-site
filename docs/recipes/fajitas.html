@@ -4,14 +4,42 @@
 <a class="back" href="../index.html">&larr; All recipes</a>
 <div class="rhead"><div class="icon"><iconify-icon icon="ph:pepper"></iconify-icon></div>
 <h1>Fajitas</h1>
-<p class="intro">House freestyle: chicken, peppers and onions, seasoned and seared, wrapped at the table. Quick, kid-approved, no written recipe.</p></div>
+<p class="intro">Chicken, peppers and onions seared hard and piled into warm tortillas at the table. The definitive house version, built on the Homemade Chilli Powder.</p></div>
 <div class="meta">
-<div class="m"><b>Source</b>Personal creation</div>
+<div class="m"><b>Prep</b>~15 min</div><div class="m"><b>Cook</b>~15 min</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>House (ATK + RecipeTin)</div>
 </div>
-<div class="panel" style="margin-top:18px"><h2>How it goes</h2>
-<p>This one is cooked from memory rather than a recipe: sliced chicken breast and strips of pepper and onion, tossed in fajita seasoning, seared hot in a wide pan, then served with warm tortillas, and whatever's in the fridge: soured-cream alternative, salsa, grated cheese, lime.</p>
-<p class="intro">If a definitive written version ever settles, it belongs here.</p>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li class="grp">Spice mix</li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> <a href="../components/homemade-chilli-powder.html">Homemade Chilli Powder</a> (the backbone)</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac12; tsp</b> ground cumin</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac12; tsp</b> smoked paprika</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> salt</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac12; tsp</b> black pepper</span></label></li>
+<li><label><input type="checkbox"><span><b>&frac12; tsp</b> light brown sugar</span></label></li>
+<li class="grp">To cook</li>
+<li><label><input type="checkbox"><span><b>600 g</b> chicken (breast or thigh), sliced</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> garlic cloves, minced</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> light or refined olive oil</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> lime juice</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> orange juice</span></label></li>
+<li><label><input type="checkbox"><span><b>3</b> mixed peppers, sliced</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> onions, sliced</span></label></li>
+<li class="grp">To serve</li>
+<li><label><input type="checkbox"><span>Warm tortillas, lime wedges</span></label></li>
+<li><label><input type="checkbox"><span>Soured-cream alternative, grated cheese, salsa</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Mix the spice blend. Toss the sliced chicken with the spices, garlic, oil, lime and orange juice. If you have time, leave 30 to 60 minutes; if not, straight on.</li>
+<li>Heat a large heavy pan with a little light olive oil until just smoking. Sear the chicken in a single, uncrowded layer, undisturbed ~4 minutes, then flip for 2 to 4 minutes more, to just cooked through (71&deg;C). Lift out and rest.</li>
+<li>In the same hot pan, sear the peppers and onions hard in one layer until charred at the edges but still with bite. (Char them in the pizza oven if it's already lit.)</li>
+<li>Slice the rested chicken across the grain; return it to the pan with the veg to combine.</li>
+<li>Squeeze fresh lime over off the heat. Pile into warm tortillas with the toppings.</li>
+</ol>
+<div class="note"><b>Why so few added spices:</b> the <a href="../components/homemade-chilli-powder.html">Homemade Chilli Powder</a> already carries cumin, oregano, garlic and onion, so this leans on it and adds only what lifts a fajita past the chili profile: a little extra cumin and smoked paprika, salt, pepper, a touch of sugar. No cornflour (it suits a saucy or sheet-pan version, but works against a hard-seared fajita). Lime goes in the marinade and again at the table.</div>
+<p class="srcline">Blend and method reconciled from <a href="https://www.americastestkitchen.com/recipes/7015-skillet-chicken-fajitas">America's Test Kitchen</a>, <a href="https://www.recipetineats.com/chicken-fajitas/">RecipeTin Eats</a> and Serious Eats.</p>
+</div></div>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
 </div>
-<footer>Part of the <a href="../index.html">household cookbook</a></footer>
-</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
 </body></html>
