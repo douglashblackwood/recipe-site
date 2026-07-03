@@ -30,7 +30,7 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 
 - `docs/assets/*.webp` are bespoke gouache-style food illustrations (transparent, work on light + dark), generated 03/07/2026 via the Codex CLI image pipeline (memory `codex_game_art_pipeline`): generate on solid `#00ff00` with `codex exec` (FOREGROUND, background runs silently fail), strip with `remove_chroma_key.py --auto-key border --soft-matte --despill`, export WebP q82 at 720w (hero 1200w).
 - **House style prompt (reuse verbatim for new images):** "Flat editorial gouache food illustration, warm palette of terracotta, burnt orange, ochre, deep teal, rose and sage green, confident visible brush strokes, clean crisp edges suitable for chroma-key cutout, no outlines, no text, no watermark, subject centred with generous margin, on a completely solid flat pure green #00ff00 background. Landscape 3:2."
-- Content rules for artwork: respect household food rules (no beef in illustrations; the pho is chicken pho); illustrations get descriptive alt text.
+- Content rules for artwork: illustrations must match the actual recipe (the pho is chicken pho, not beef); beef itself is fine (cooked in this house, e.g. bolognese). Illustrations get descriptive alt text.
 
 ## Weekly plan page
 
