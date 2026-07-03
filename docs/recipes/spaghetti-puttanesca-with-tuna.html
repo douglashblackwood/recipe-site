@@ -33,7 +33,9 @@
 </ol>
 <div class="note"><b>Notes:</b> easy cook, one-pan sauce. For a milder version reduce or omit the chilli and anchovies. Any long pasta works.</div>
 </div></div>
+<button class="cookbtn" id="cookbtn" type="button"><iconify-icon icon="ph:fire"></iconify-icon>Cook mode</button>
 <footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
 </div>
 <script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+<script>const cb=document.getElementById('cookbtn');let wl=null;async function wake(on){try{if(on){wl=await navigator.wakeLock.request('screen')}else if(wl){await wl.release();wl=null}}catch(e){}}cb.addEventListener('click',()=>{const on=document.body.classList.toggle('cook');cb.classList.toggle('on',on);cb.innerHTML=on?'<iconify-icon icon="ph:fire-fill"></iconify-icon>Cooking':'<iconify-icon icon="ph:fire"></iconify-icon>Cook mode';wake(on)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&document.body.classList.contains('cook'))wake(true)});</script>
 </body></html>
