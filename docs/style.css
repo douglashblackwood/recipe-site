@@ -92,20 +92,6 @@ h3{font-size:1.02rem; margin:20px 0 6px;}
   .sechead img{width:124px; margin:-20px 0 -14px;}
 }
 
-/* ---------- hero (BIR) ---------- */
-.hero{
-  display:block; text-decoration:none; color:#fff; border-radius:var(--radius);
-  background:linear-gradient(135deg,#b5471f 0%,#7a2d12 100%);
-  padding:26px 24px; margin:14px 0 4px; box-shadow:var(--shadow); position:relative; overflow:hidden;
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-.hero .display{font-size:1.55rem; font-weight:600; margin:2px 0 4px;}
-.hero p{margin:0; opacity:.92; font-size:.95rem; max-width:560px;}
-.hero .kicker{color:#ffd9c4;}
-.hero iconify-icon{position:absolute; right:18px; top:50%; transform:translateY(-50%); font-size:84px; opacity:.18;}
-.hero:active{transform:scale(.995);}
-@media(hover:hover){.hero:hover{transform:translateY(-2px); box-shadow:var(--shadow-lift);}}
-
 /* ---------- filters ---------- */
 .toolbar{position:sticky; top:0; z-index:5; background:linear-gradient(var(--bg) 75%,transparent); padding:14px 0 16px; margin-top:10px;}
 .search{
@@ -235,7 +221,7 @@ body.cook .ing input{width:21px; height:21px;}
 /* ---------- print ---------- */
 @media print{
   body{background:#fff; color:#000;}
-  .toolbar,.back,.cookbtn,.hero,.rhead .icon,footer{display:none;}
+  .toolbar,.back,.cookbtn,.rhead .icon,footer{display:none;}
   .layout{grid-template-columns:1fr; gap:12px;}
   .panel,.rcard{box-shadow:none; border:1px solid #ddd;}
   .ing-panel{position:static;}
