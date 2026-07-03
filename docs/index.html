@@ -2,12 +2,16 @@
 <html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Blackwood Kitchen · Recipes</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
 <body><div class="wrap">
 
-<div class="site-head">
+<div class="masthead">
+<div>
 <div class="kicker">Household Cookbook</div>
-<h1>Blackwood Kitchen</h1>
+<h1>Blackwood <em>Kitchen</em></h1>
 <p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
 <p class="count" id="count">29 recipes &middot; 3 components &middot; the BIR curry reference</p>
 <a class="planlink" href="this-week.html"><iconify-icon icon="ph:calendar-heart"></iconify-icon>This week's plan &rarr;</a>
+<a class="tonight" id="tonight" href="#"><span class="k">Tonight</span><b id="tonight-meal"></b><span class="arr">&rarr;</span></a>
+</div>
+<img class="art" src="assets/hero.webp" alt="Gouache illustration of a kitchen still life: a steaming copper saucepan, a teal casserole, fresh vegetables, a lemon and a wooden spoon" width="1200" height="800">
 </div>
 
 <div class="toolbar">
@@ -25,8 +29,9 @@
 </div>
 
 <div class="section" style="--cat:var(--curry)">
-<h2>Curries</h2>
-<p class="count">The BIR system mains and the house curries.</p>
+<div class="sechead"><div class="tx"><h2>Curries</h2>
+<p class="count">The BIR system mains and the house curries.</p></div>
+<img src="assets/curries.webp" loading="lazy" alt="Gouache illustration of a brass karahi of steaming curry with dried chillies, cardamom pods and a cinnamon stick" width="720" height="480"></div>
 
 <a class="hero" href="bir-curry-system.html">
 <div class="kicker">The reference</div>
@@ -65,8 +70,9 @@
 </div>
 
 <div class="section" style="--cat:var(--chicken)">
-<h2>Everyday Mains</h2>
-<p class="count">Grills, bowls, burgers and the fast school-night dinners.</p>
+<div class="sechead"><div class="tx"><h2>Everyday Mains</h2>
+<p class="count">Grills, bowls, burgers and the fast school-night dinners.</p></div>
+<img src="assets/everyday.webp" loading="lazy" alt="Gouache illustration of char-grilled chicken skewers with blistered peppers, lime and coriander" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/chicken-skewers-amazing-satay-sauce-and-fiery-noodles.html"><div class="body">
@@ -109,8 +115,9 @@
 </div>
 
 <div class="section" style="--cat:var(--pasta)">
-<h2>Pasta</h2>
-<p class="count">The weeknight backbone.</p>
+<div class="sechead"><div class="tx"><h2>Pasta</h2>
+<p class="count">The weeknight backbone.</p></div>
+<img src="assets/pasta.webp" loading="lazy" alt="Gouache illustration of a bowl of spaghetti in tomato sauce twirled around a fork, with basil and cherry tomatoes" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--pasta)" data-tags="pasta veggie" href="recipes/pasta-alla-norma.html"><div class="body">
@@ -159,8 +166,9 @@
 </div>
 
 <div class="section" style="--cat:var(--fish)">
-<h2>Fish &amp; Seafood</h2>
-<p class="count">From 35-minute fishcakes to proper fish and chips.</p>
+<div class="sechead"><div class="tx"><h2>Fish &amp; Seafood</h2>
+<p class="count">From 35-minute fishcakes to proper fish and chips.</p></div>
+<img src="assets/fish.webp" loading="lazy" alt="Gouache illustration of a whole roasted fish on a patterned oval plate with charred lemon, a king prawn and dill" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--fish)" data-tags="fish kid" href="recipes/fish-and-chips.html"><div class="body">
@@ -191,8 +199,9 @@
 </div>
 
 <div class="section" style="--cat:var(--veggie)">
-<h2>Korean &amp; Vietnamese</h2>
-<p class="count">The trial shelf: new recipes earning a permanent spot.</p>
+<div class="sechead"><div class="tx"><h2>Korean &amp; Vietnamese</h2>
+<p class="count">The trial shelf: new recipes earning a permanent spot.</p></div>
+<img src="assets/korean-viet.webp" loading="lazy" alt="Gouache illustration of a steaming bowl of chicken pho with chopsticks, Thai basil, bean sprouts, lime and chilli" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/chicken-pho.html"><div class="body">
@@ -235,8 +244,9 @@
 </div>
 
 <div class="section" style="--cat:var(--other)">
-<h2>Project Cooks</h2>
-<p class="count">Weekend cooking with time to spare.</p>
+<div class="sechead"><div class="tx"><h2>Project Cooks</h2>
+<p class="count">Weekend cooking with time to spare.</p></div>
+<img src="assets/projects.webp" loading="lazy" alt="Gouache illustration of a leopard-crusted wood-fired pizza beside a golden roast chicken on a carving board" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--veggie)" data-tags="veggie" href="recipes/pizza.html"><div class="body">
@@ -255,8 +265,9 @@
 </div>
 
 <div class="section" style="--cat:var(--gold)">
-<h2>Components</h2>
-<p class="count">The sub-recipes the mains depend on. Make ahead, jar or freeze.</p>
+<div class="sechead"><div class="tx"><h2>Components</h2>
+<p class="count">The sub-recipes the mains depend on. Make ahead, jar or freeze.</p></div>
+<img src="assets/components.webp" loading="lazy" alt="Gouache illustration of jars of ground spices in red, ochre and rust beside a stone mortar and pestle" width="720" height="480"></div>
 <div class="grid">
 
 <a class="rcard" style="--cat:var(--gold)" data-tags="component" href="components/bir-mix-powder.html"><div class="body">
@@ -300,5 +311,16 @@ function apply(){
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
+// tonight strip, fed by the weekly plan feed
+fetch('https://gist.githubusercontent.com/douglashblackwood/bea2fc791caba3d88676cd19f4b5c182/raw/plan.json',{cache:'no-cache'})
+.then(r=>r.ok?r.json():null).then(p=>{
+  if(!p||!p.days)return;
+  const d=new Date(),today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const t=p.days.find(x=>x.date===today&&x.meal);
+  if(!t)return;
+  const el=document.getElementById('tonight');
+  document.getElementById('tonight-meal').textContent=t.meal;
+  el.href=t.href||'this-week.html';el.classList.add('on');
+}).catch(()=>{});
 </script>
 </body></html>

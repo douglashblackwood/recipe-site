@@ -26,6 +26,12 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 - **Components rule (Douglas's):** a component gets its own page in `docs/components/` only if MULTIPLE recipes depend on it. Current three: BIR Mix Powder, Chicken Tikka, Homemade Chilli Powder. Single-recipe sub-parts stay inline; the BIR base stays in the BIR reference only.
 - **Trials' meal-planner paperwork** (`.md` files, recipes-index, recipe-discovery registration) is deliberately deferred until first cook; see memory `recipe_critique_pending.md`.
 
+## Imagery
+
+- `docs/assets/*.webp` are bespoke gouache-style food illustrations (transparent, work on light + dark), generated 03/07/2026 via the Codex CLI image pipeline (memory `codex_game_art_pipeline`): generate on solid `#00ff00` with `codex exec` (FOREGROUND, background runs silently fail), strip with `remove_chroma_key.py --auto-key border --soft-matte --despill`, export WebP q82 at 720w (hero 1200w).
+- **House style prompt (reuse verbatim for new images):** "Flat editorial gouache food illustration, warm palette of terracotta, burnt orange, ochre, deep teal, rose and sage green, confident visible brush strokes, clean crisp edges suitable for chroma-key cutout, no outlines, no text, no watermark, subject centred with generous margin, on a completely solid flat pure green #00ff00 background. Landscape 3:2."
+- Content rules for artwork: respect household food rules (no beef in illustrations; the pho is chicken pho); illustrations get descriptive alt text.
+
 ## Weekly plan page
 
 - `docs/this-week.html` renders the week's dinner plan. **No plan data lives in this repo**: the page fetches JSON at load from a secret gist (`gh gist view bea2fc791caba3d88676cd19f4b5c182`), keeping the public repo clean per the personal-data rule. Note the gist raw URL is visible in the page source, so treat the feed itself as public: **meal names and dates only, never notes, day_class reasons, or family details.**

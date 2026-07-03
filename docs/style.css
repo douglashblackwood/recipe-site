@@ -49,12 +49,48 @@ h3{font-size:1.02rem; margin:20px 0 6px;}
 .site-head{padding:18px 0 6px;}
 .count{color:var(--muted); font-size:.86rem; margin-top:6px;}
 
+/* ---------- masthead ---------- */
+.masthead{display:grid; grid-template-columns:1.05fr .95fr; gap:30px; align-items:center; padding:30px 0 6px;}
+.masthead h1{font-size:clamp(2.6rem,7vw,4.3rem); line-height:1.03; margin:.14em 0 .14em; font-weight:600;}
+.masthead h1 em{font-style:italic; color:var(--accent);}
+.masthead .art{width:100%; height:auto; filter:drop-shadow(0 20px 32px rgba(60,45,30,.20));}
+@media(prefers-color-scheme:dark){.masthead .art{filter:drop-shadow(0 20px 32px rgba(0,0,0,.5));}}
+@media(max-width:760px){
+  .masthead{grid-template-columns:1fr; gap:10px; padding-top:16px;}
+  .masthead .art{max-width:420px; margin:6px auto 0; order:2;}
+}
+
+/* tonight strip (shown by JS when the plan feed has today's dinner) */
+.tonight{
+  display:none; align-items:center; gap:14px; margin:18px 0 0; padding:14px 20px; border-radius:14px;
+  background:linear-gradient(120deg,#b5471f,#7a2d12); color:#fff; text-decoration:none; box-shadow:var(--shadow);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.tonight.on{display:flex;}
+@media(hover:hover){.tonight:hover{transform:translateY(-2px); box-shadow:var(--shadow-lift);}}
+.tonight .k{font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#ffd9c4; flex:0 0 auto;}
+.tonight b{font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:1.12rem;}
+.tonight .arr{margin-left:auto; opacity:.8;}
+
 /* ---------- sections ---------- */
-.section{margin-top:40px;}
-.section > h2{display:flex; align-items:center; gap:11px; margin:0 0 2px; font-size:1.35rem;}
-.section > h2::before{content:""; width:11px; height:11px; border-radius:3.5px; background:var(--cat,var(--accent)); flex:0 0 auto;}
-.section > h2::after{content:""; flex:1; height:1px; background:var(--line);}
-.section .count{margin:2px 0 4px;}
+.section{margin-top:46px;}
+.sechead{
+  display:flex; align-items:center; gap:22px;
+  background:color-mix(in srgb,var(--cat,var(--accent)) 9%,var(--card));
+  border-radius:20px; padding:18px 26px; box-shadow:var(--shadow);
+}
+.sechead .tx{flex:1;}
+.sechead h2{margin:0; font-size:clamp(1.45rem,3vw,1.85rem);}
+.sechead .count{margin:3px 0 0;}
+.sechead img{
+  width:190px; height:auto; flex:0 0 auto; margin:-30px 4px -20px 0;
+  filter:drop-shadow(0 12px 20px rgba(60,45,30,.25));
+}
+@media(prefers-color-scheme:dark){.sechead img{filter:drop-shadow(0 12px 20px rgba(0,0,0,.5));}}
+@media(max-width:600px){
+  .sechead{gap:12px; padding:14px 16px;}
+  .sechead img{width:124px; margin:-20px 0 -14px;}
+}
 
 /* ---------- hero (BIR) ---------- */
 .hero{
