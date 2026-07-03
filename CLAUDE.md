@@ -26,6 +26,11 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 - **Components rule (Douglas's):** a component gets its own page in `docs/components/` only if MULTIPLE recipes depend on it. Current three: BIR Mix Powder, Chicken Tikka, Homemade Chilli Powder. Single-recipe sub-parts stay inline; the BIR base stays in the BIR reference only.
 - **Trials' meal-planner paperwork** (`.md` files, recipes-index, recipe-discovery registration) is deliberately deferred until first cook; see memory `recipe_critique_pending.md`.
 
+## Weekly plan page
+
+- `docs/this-week.html` renders the week's dinner plan. **No plan data lives in this repo**: the page fetches JSON at load from a secret gist (`gh gist view bea2fc791caba3d88676cd19f4b5c182`), keeping the public repo clean per the personal-data rule. Note the gist raw URL is visible in the page source, so treat the feed itself as public: **meal names and dates only, never notes, day_class reasons, or family details.**
+- Publishing a week: `python3 ~/.claude/scripts/publish_meal_plan.py [--week YYYY-MM-DD]` reads meal-planner's `meal-plan.json`, strips everything but date + planned meal, resolves recipe-page links, and updates the gist. Run it whenever a new weekly plan is generated. The Apple Reminders sync in meal-planner is unchanged and runs in parallel.
+
 ## Updating
 
 - **Recipe changed/added in meal-planner** → ask Claude to add/update the matching page in `docs/recipes/` (follow an existing page as the template), add a card to `docs/index.html`, commit, push. Live in ~1 min.
