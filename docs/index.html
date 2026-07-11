@@ -310,16 +310,14 @@ function apply(){
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
-// tonight strip, fed by the weekly plan feed
+// this-week strip, fed by the weekly POOL feed (pool model since 11/07/2026)
 fetch('https://gist.githubusercontent.com/douglashblackwood/bea2fc791caba3d88676cd19f4b5c182/raw/plan.json',{cache:'no-cache'})
 .then(r=>r.ok?r.json():null).then(p=>{
-  if(!p||!p.days)return;
-  const d=new Date(),today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-  const t=p.days.find(x=>x.date===today&&x.meal);
-  if(!t)return;
+  if(!p||!p.pool||!p.pool.length)return;
   const el=document.getElementById('tonight');
-  document.getElementById('tonight-meal').textContent=t.meal;
-  el.href=t.href||'this-week.html';el.classList.add('on');
+  el.querySelector('.k').textContent='This week';
+  document.getElementById('tonight-meal').textContent=p.pool.length+' dinners in the pool';
+  el.href='this-week.html';el.classList.add('on');
 }).catch(()=>{});
 </script>
 </body></html>

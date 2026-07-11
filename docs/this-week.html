@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>This Week · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>This Week · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+<style>
+.pool{list-style:none;margin:14px 0 0;padding:0}
+.pool li{display:flex;align-items:baseline;gap:10px;padding:12px 4px;border-bottom:1px solid var(--rule,#e4dccc)}
+.pool li:last-child{border-bottom:none}
+.pool a,.pool .meal{font-family:Fraunces,serif;font-size:1.15rem;font-weight:600}
+.pool .tags{font-size:.72rem;letter-spacing:.03em;text-transform:uppercase;opacity:.6;white-space:nowrap}
+.pool .note{display:block;font-size:.82rem;opacity:.7;margin-top:2px}
+.pool li.done{opacity:.45}
+.pool li.done a,.pool li.done .meal{text-decoration:line-through}
+.pool li.done .tick{color:#3e7d3e;font-size:1.05rem}
+#left{margin:4px 0 0;font-weight:600}
+</style></head>
 <body><div class="wrap">
 <a class="back" href="index.html">&larr; All recipes</a>
-<div class="rhead"><div class="icon" style="--cat:var(--accent)"><iconify-icon icon="ph:calendar-heart"></iconify-icon></div>
+<div class="rhead"><div class="icon" style="--cat:var(--accent)"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
 <h1>This Week</h1>
-<p class="intro" id="range">The week's dinner plan, straight from the meal planner.</p></div>
+<p class="intro" id="range">The week's pool of dinners: cook any of them on any night. Meals drop off as they're cooked (via each recipe's "Cooked this" form).</p></div>
 
 <div class="panel" style="max-width:640px; margin-top:22px">
-<p id="status" class="count" style="margin:0">Loading the plan&hellip;</p>
-<ul class="plan" id="plan"></ul>
+<p id="status" class="count" style="margin:0">Loading the pool&hellip;</p>
+<p id="left" hidden></p>
+<ul class="pool" id="pool"></ul>
 </div>
 
-<footer>Part of the <a href="index.html">household cookbook</a> &middot; the plan updates when a new week is published</footer>
+<footer>Part of the <a href="index.html">household cookbook</a> &middot; a new pool is published each week</footer>
 </div>
 <script>
 const FEED='https://gist.githubusercontent.com/douglashblackwood/bea2fc791caba3d88676cd19f4b5c182/raw/plan.json';
-const status=document.getElementById('status'),list=document.getElementById('plan'),range=document.getElementById('range');
-const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const COOKED='https://script.google.com/macros/s/AKfycbz-8XP_sdijbn3JG071F_ebCCh7NFSdXZ2ujYhpWRJWGI-1WH-1AzB5nC7SsSCsFSVo8Q/exec?cooked=1&since=';
+const status=document.getElementById('status'),list=document.getElementById('pool'),range=document.getElementById('range'),left=document.getElementById('left');
 const parse=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 fetch(FEED,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(p=>{
-  const start=parse(p.week_of),today=iso(new Date());
+  const start=parse(p.week_of);
   const end=new Date(start);end.setDate(end.getDate()+6);
-  const fmt=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-  range.textContent='Week of '+start.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})+' to '+end.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+'.';
-  if(!p.days||!p.days.length){status.textContent='No plan published for this week yet.';return}
-  const byDate={};p.days.forEach(d=>byDate[d.date]=d);
+  range.textContent='Week of '+start.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+' to '+end.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+'. Cook any of these on any night; they drop off as they’re cooked.';
+  if(!p.pool||!p.pool.length){status.textContent='No pool published for this week yet.';return}
+  // cooked state is best-effort: pool still renders if the endpoint is slow/down
+  fetch(COOKED+p.week_of,{cache:'no-cache'}).then(r=>r.json()).then(c=>render(p,c.cooked||[])).catch(()=>render(p,[]));
+}).catch(e=>{status.textContent='Couldn’t load the pool feed ('+e.message+'). Check the connection and reload.'});
+function render(p,cooked){
   status.remove();
-  for(let i=0;i<7;i++){
-    const d=new Date(start);d.setDate(d.getDate()+i);
-    const key=iso(d),m=byDate[key],li=document.createElement('li');
-    if(key===today)li.classList.add('today');
-    const day=document.createElement('span');day.className='d';
-    day.innerHTML=d.toLocaleDateString('en-GB',{weekday:'short'})+'<small>'+fmt(d)+'</small>';
-    li.appendChild(day);
-    if(m&&m.meal){
-      if(m.href){const a=document.createElement('a');a.href=m.href;a.textContent=m.meal;li.appendChild(a)}
-      else{const s=document.createElement('span');s.className='meal';s.textContent=m.meal;li.appendChild(s)}
-    }else{const s=document.createElement('span');s.className='none';s.textContent='–';li.appendChild(s)}
+  let remaining=0;
+  p.pool.forEach(m=>{
+    const li=document.createElement('li');
+    const done=cooked.includes(m.id);
+    if(done)li.classList.add('done');else remaining++;
+    if(done){const t=document.createElement('span');t.className='tick';t.textContent='✓';li.appendChild(t)}
+    const body=document.createElement('div');
+    if(m.href){const a=document.createElement('a');a.href=m.href;a.textContent=m.meal;body.appendChild(a)}
+    else{const s=document.createElement('span');s.className='meal';s.textContent=m.meal;body.appendChild(s)}
+    if(m.note&&!done){const n=document.createElement('span');n.className='note';n.textContent=m.note;body.appendChild(n)}
+    li.appendChild(body);
+    if(m.tags&&m.tags.length){const t=document.createElement('span');t.className='tags';t.textContent=m.tags.join(' · ');li.appendChild(t)}
     list.appendChild(li);
-  }
-}).catch(e=>{status.textContent='Couldn’t load the plan feed ('+e.message+'). Check the connection and reload.'});
+  });
+  left.hidden=false;
+  left.textContent=remaining===0?'All cooked. Strong week.':remaining+' of '+p.pool.length+' still to cook.';
+}
 </script>
 </body></html>

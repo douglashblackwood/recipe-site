@@ -33,10 +33,11 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 - **House style prompt (reuse verbatim for new images):** "Flat editorial gouache food illustration, warm palette of terracotta, burnt orange, ochre, deep teal, rose and sage green, confident visible brush strokes, clean crisp edges suitable for chroma-key cutout, no outlines, no text, no watermark, subject centred with generous margin, on a completely solid flat pure green #00ff00 background. Landscape 3:2."
 - Content rules for artwork: illustrations must match the actual recipe (the pho is chicken pho, not beef); beef itself is fine (cooked in this house, e.g. bolognese). Illustrations get descriptive alt text.
 
-## Weekly plan page
+## Weekly pool page (pool model since 11/07/2026)
 
-- `docs/this-week.html` renders the week's dinner plan. **No plan data lives in this repo**: the page fetches JSON at load from a secret gist (`gh gist view bea2fc791caba3d88676cd19f4b5c182`), keeping the public repo clean per the personal-data rule. Note the gist raw URL is visible in the page source, so treat the feed itself as public: **meal names and dates only, never notes, day_class reasons, or family details.**
-- Publishing a week: `python3 ~/.claude/scripts/publish_meal_plan.py [--week YYYY-MM-DD]` reads meal-planner's `meal-plan.json`, strips everything but date + planned meal, resolves recipe-page links, and updates the gist. Run it whenever a new weekly plan is generated. The Apple Reminders sync in meal-planner is unchanged and runs in parallel.
+- `docs/this-week.html` renders the week's POOL of dinners (no dates: the household cooks any pool meal any night). **No plan data lives in this repo**: the page fetches the pool from a secret gist (`gh gist view bea2fc791caba3d88676cd19f4b5c182`) and crosses off cooked meals live via the recipe-feedback endpoint (`?cooked=1&since=<week_of>`; ids come from Cooked-this submissions). Cooked-state fetch is best-effort: the pool renders even if the endpoint is down. Treat the feed as public: **meal names, generic tags and generic notes only - never day classes, calendar reasons, or family details.**
+- The index masthead strip now shows "This week · N dinners in the pool" (was "Tonight: <meal>", retired with dates).
+- Publishing a week: `python3 ~/.claude/scripts/publish_meal_plan.py [--week YYYY-MM-DD]` reads the week's `pool` from meal-planner's `meal-plan.json` and updates the gist. Apple Reminders sync was REMOVED the same day; this page is the household's only meal interface.
 
 ## Updating
 
