@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Pressure Cooker Chicken Enchiladas · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--chicken)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:pepper"></iconify-icon></div>
+<h1>Pressure Cooker Chicken Enchiladas</h1>
+<p class="intro">Kenji López-Alt's dump-and-cook trick: the pressure cooker braises the chicken and makes the enchilada sauce in the same pot, then a quick assemble-and-bake. House version: chicken breast, big flour tortillas, no frying step, parmesan finish.</p></div>
+<div class="meta">
+<div class="m"><b>Source</b>Serious Eats</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Time</b>~60 min</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>650 g</b> chicken breast, whole</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> dried ancho chillies, deseeded (1½ if enormous)</span></label></li>
+<li><label><input type="checkbox"><span><b>450 g</b> ripe tomatoes, roughly chopped (or a 400 g tin of plum tomatoes with juice; then only 60 ml water)</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> medium onion, sliced</span></label></li>
+<li><label><input type="checkbox"><span><b>4</b> frozen garlic cubes (= 4 cloves), straight in frozen</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> chipotles in adobo + <b>2 tbsp</b> adobo sauce (mild version: 1 + 1 tbsp)</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> bay leaf</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> dried oregano</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tsp</b> ground cumin</span></label></li>
+<li><label><input type="checkbox"><span><b>½ tsp</b> ground coriander</span></label></li>
+<li><label><input type="checkbox"><span><b>120 ml</b> hot water + <b>½ tsp</b> Knorr chicken powder</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> lime juice</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> soy sauce (umami, don't skip)</span></label></li>
+<li><label><input type="checkbox"><span><b>15 g</b> fresh coriander, chopped</span></label></li>
+<li><label><input type="checkbox"><span><b>4</b> large flour tortillas</span></label></li>
+<li><label><input type="checkbox"><span><b>85 g</b> mature cheddar, grated</span></label></li>
+<li><label><input type="checkbox"><span><b>30 g</b> parmesan, finely grated (stands in for cotija)</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Snip the tops off the anchos, shake out the seeds, microwave 15 seconds until pliable and fragrant, snip into strips.</li>
+<li>Load the pressure cooker wet-veg first: tomatoes and onion at the bottom, chicken on top, then anchos, garlic, chipotles and adobo, bay, oregano, cumin, ground coriander, the Knorr water and a good grind of pepper. No salt yet.</li>
+<li>Pressure HIGH for 8 minutes, quick release. Check the breast is cooked through (72°C / no pink); a minute or two under the closed lid finishes a borderline piece.</li>
+<li>Lift the chicken out to cool. Discard the bay leaf. Blend everything left in the pot with the soy and lime until smooth. Taste, and salt only if it needs it. Stir in three-quarters of the coriander.</li>
+<li>Shred the breast with two forks and fold in about 4 tablespoons of sauce. Breast is lean, so be generous.</li>
+<li>Oven to 200°C (180°C fan). Ladle a good cup of sauce over the base of a roughly 20 × 30 cm dish.</li>
+<li>Spread the inside of each tortilla with a spoon of sauce, lay a quarter of the chicken down the middle, roll, and place seam-side down in the dish.</li>
+<li>Pour all remaining sauce over the top (flour tortillas drink it). Cheddar in two rows down the middle, then a few spoonfuls of sauce on top of the cheese: Kenji's trick for keeping it gooey.</li>
+<li>Foil on, bake 10 minutes. Foil off, half the parmesan on, 5-10 minutes more until bubbling.</li>
+<li>Finish with the remaining parmesan and coriander. Serve with any spare sauce at the table.</li>
+</ol>
+<div class="note"><b>Heat map:</b> the anchos are fruity, not hot; the chipotles are the real heat. One chipotle is mild and smoky, two is smoky-medium; adults correct at the table with hot sauce. <b>Bail-out:</b> stop after step 5 and you have excellent taco filling in ~35 minutes. The chicken and sauce also freeze well. <b>Original:</b> Kenji uses 900 g bone-in thighs at 15 minutes and 12 oil-fried corn tortillas; breast needs only 8 minutes (no fat or collagen to protect it, even in liquid).</div>
+</div></div>
+<button class="cookbtn" id="cookbtn" type="button"><iconify-icon icon="ph:fire"></iconify-icon>Cook mode</button>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+<script>const cb=document.getElementById('cookbtn');let wl=null;async function wake(on){try{if(on){wl=await navigator.wakeLock.request('screen')}else if(wl){await wl.release();wl=null}}catch(e){}}cb.addEventListener('click',()=>{const on=document.body.classList.toggle('cook');cb.classList.toggle('on',on);cb.innerHTML=on?'<iconify-icon icon="ph:fire-fill"></iconify-icon>Cooking':'<iconify-icon icon="ph:fire"></iconify-icon>Cook mode';wake(on)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&document.body.classList.contains('cook'))wake(true)});</script>
+<script src="../feedback.js" defer></script>
+</body></html>
