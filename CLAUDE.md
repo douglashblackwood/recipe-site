@@ -36,6 +36,7 @@ This is Douglas's only **public** GitHub repo (free GitHub Pages requires it). H
 ## Weekly pool page (pool model since 11/07/2026)
 
 - `docs/this-week.html` renders the week's POOL of dinners (no dates: the household cooks any pool meal any night). **No plan data lives in this repo**: the page fetches the pool from a secret gist (`gh gist view bea2fc791caba3d88676cd19f4b5c182`) and crosses off cooked meals live via the recipe-feedback endpoint (`?cooked=1&since=<week_of>`; ids come from Cooked-this submissions). Cooked-state fetch is best-effort: the pool renders even if the endpoint is down. Treat the feed as public: **meal names, generic tags and generic notes only - never day classes, calendar reasons, or family details.**
+- A pool meal only gets a click-through on this-week.html if a matching page exists in `docs/recipes/` (publish script matches by slugified name) - create the site page BEFORE pooling a new recipe, or it renders as plain text (bit us 28/07/2026 with the Tommy Cole trials).
 - The index masthead strip now shows "This week · N dinners in the pool" (was "Tonight: <meal>", retired with dates).
 - Publishing a week: `python3 ~/.claude/scripts/publish_meal_plan.py [--week YYYY-MM-DD]` reads the week's `pool` from meal-planner's `meal-plan.json` and updates the gist. Apple Reminders sync was REMOVED the same day; this page is the household's only meal interface.
 
