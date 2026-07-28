@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Tahini Miso Chicken · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--chicken)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<h1>Tahini Miso Chicken</h1>
+<p class="intro">Seven ingredients, one bowl, a grill and rice. The marinade doubles as the sauce, so there is nothing else to make: mix it at breakfast and dinner is half an hour when you get in.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>10 min</div><div class="m"><b>Cook</b>20 min</div><div class="m"><b>Marinade</b>1 h+</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>Tommy Cole</div><div class="m"><b>Status</b>Trial</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li><label><input type="checkbox"><span><b>4</b> chicken breasts (about 650 g), diced into bite-size pieces</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> tahini (about 30 g)</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> honey (about 14 g)</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> miso paste (about 35 g)</span></label></li>
+<li><label><input type="checkbox"><span><b>100 ml</b> low-salt soy sauce</span></label></li>
+<li><label><input type="checkbox"><span>zest of <b>1</b> lime</span></label></li>
+<li><label><input type="checkbox"><span><b>100 ml</b> water</span></label></li>
+<li><label><input type="checkbox"><span><b>300 g</b> rice (dry weight), to serve</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Whisk the tahini, honey, miso, soy sauce, lime zest and water together until smooth.</li>
+<li>Mix in the diced chicken and leave in the fridge to marinate for at least 1 hour (much longer is fine).</li>
+<li>Lift the chicken out of the marinade and tip the remaining marinade into a saucepan.</li>
+<li>Bring the reserved marinade to a simmer and cook for 2 minutes, stirring continuously so it doesn't catch on the bottom of the pan.</li>
+<li>Cook the chicken under a grill for 10-15 minutes, until fully cooked through.</li>
+<li>Toss the cooked chicken through the sauce and serve on a bed of rice.</li>
+</ol>
+<div class="note"><b>Trial notes:</b> use low-salt soy and taste the sauce before adding anything else; if it's too intense, loosen it with a splash of water rather than more honey. No chilli and a mild savoury flavour, so plausibly kid friendly, but untested. Treat it as a mix-at-breakfast recipe: the hour of marinade is the only thing standing between this and a genuine quick-night dinner.</div>
+<p class="srcline">Source: <a href="https://www.canva.com/design/DAG7a0wCZ1Q/-5cBRnlB_F8LXIGjT-zerg/view">Tommy Cole, The Meals I Cook for Premier League Footballers</a></p>
+</div></div>
+<button class="cookbtn" id="cookbtn" type="button"><iconify-icon icon="ph:fire"></iconify-icon>Cook mode</button>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+<script>const cb=document.getElementById('cookbtn');let wl=null;async function wake(on){try{if(on){wl=await navigator.wakeLock.request('screen')}else if(wl){await wl.release();wl=null}}catch(e){}}cb.addEventListener('click',()=>{const on=document.body.classList.toggle('cook');cb.classList.toggle('on',on);cb.innerHTML=on?'<iconify-icon icon="ph:fire-fill"></iconify-icon>Cooking':'<iconify-icon icon="ph:fire"></iconify-icon>Cook mode';wake(on)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&document.body.classList.contains('cook'))wake(true)});</script>
+<script src="../feedback.js" defer></script>
+</body></html>

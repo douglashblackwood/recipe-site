@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><title>Chicken Katsu · Blackwood Kitchen</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script></head>
+<body style="--cat:var(--curry)"><div class="wrap">
+<a class="back" href="../index.html">&larr; All recipes</a>
+<div class="rhead"><div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<h1>Chicken Katsu</h1>
+<p class="intro">Panko-crusted chicken with a smooth, glossy katsu curry sauce. The sauce makes a big batch and freezes beautifully: double it and the next cook is a 25-minute dinner.</p></div>
+<div class="meta">
+<div class="m"><b>Prep</b>25 min</div><div class="m"><b>Cook</b>35 min</div><div class="m"><b>Marinade</b>4 h+</div><div class="m"><b>Serves</b>4</div><div class="m"><b>Source</b>Tommy Cole</div><div class="m"><b>Status</b>Trial</div>
+</div>
+<div class="layout">
+<div class="panel ing-panel"><h2>Ingredients</h2><ul class="ing">
+<li class="grp">Chicken</li>
+<li><label><input type="checkbox"><span><b>4</b> chicken breasts (about 650 g)</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tbsp</b> soy sauce</span></label></li>
+<li><label><input type="checkbox"><span><b>1 tbsp</b> mirin</span></label></li>
+<li><label><input type="checkbox"><span><b>100 g</b> plain flour</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> eggs, whisked</span></label></li>
+<li><label><input type="checkbox"><span><b>200 g</b> panko breadcrumbs</span></label></li>
+<li class="grp">Katsu sauce</li>
+<li><label><input type="checkbox"><span><b>1</b> onion, diced</span></label></li>
+<li><label><input type="checkbox"><span><b>2</b> carrots, diced</span></label></li>
+<li><label><input type="checkbox"><span><b>4</b> garlic cloves, grated</span></label></li>
+<li><label><input type="checkbox"><span><b>30 g</b> ginger, grated</span></label></li>
+<li><label><input type="checkbox"><span><b>2 tsp</b> curry powder + <b>1-2 tsp</b> turmeric</span></label></li>
+<li><label><input type="checkbox"><span><b>500 ml</b> chicken stock</span></label></li>
+<li><label><input type="checkbox"><span><b>1</b> 400 ml can coconut milk</span></label></li>
+<li><label><input type="checkbox"><span>salt, to taste</span></label></li>
+<li class="grp">To serve</li>
+<li><label><input type="checkbox"><span><b>300 g</b> rice (dry weight)</span></label></li>
+</ul></div>
+<div class="panel"><h2>Method</h2><ol class="steps">
+<li>Place each chicken breast between two pieces of baking paper and bash with a saucepan or rolling pin to tenderise and even out the thickness.</li>
+<li>Marinate the chicken in the soy sauce and mirin, in a bag or covered dish, for at least 4 hours.</li>
+<li>Pat the chicken dry and coat lightly in flour, then egg, then panko.</li>
+<li>Air fry until the internal temperature holds 65&deg;C for 5 minutes (or deep fry at 175&deg;C for the fullest texture). Season with a little salt.</li>
+<li>For the sauce: sweat the onion, carrots, garlic and ginger in a saucepan over medium heat for 8-10 minutes, until softened but not coloured.</li>
+<li>Add the curry powder and turmeric and cook for 1-2 minutes, stirring constantly, until fragrant.</li>
+<li>Pour in the chicken stock and reduce by about half.</li>
+<li>Add the coconut milk, bring to a gentle simmer and cook uncovered for 15-20 minutes, until the vegetables are very soft.</li>
+<li>Blend with a stick blender until completely smooth and glossy.</li>
+<li>Too thick: add a splash of stock or water. Too thin: return to the heat and reduce. Taste and adjust the salt. Slice the chicken and serve on rice with the sauce over.</li>
+</ol>
+<div class="note"><b>Trial notes:</b> the source says "reduce the stock by 3/4", which is ambiguous; reducing by half is the safe reading, since you can always cook it down further after the coconut milk goes in. Coconut milk, not cream, so it clears the house no-heavy-dairy rule. Batch the sauce, not the chicken: the sauce freezes well, breaded chicken doesn't. Counts as a curry against the fortnightly curry limit.</div>
+<p class="srcline">Source: <a href="https://www.canva.com/design/DAG7a0wCZ1Q/-5cBRnlB_F8LXIGjT-zerg/view">Tommy Cole, The Meals I Cook for Premier League Footballers</a></p>
+</div></div>
+<button class="cookbtn" id="cookbtn" type="button"><iconify-icon icon="ph:fire"></iconify-icon>Cook mode</button>
+<footer>Part of the <a href="../index.html">household cookbook</a> &middot; tick ingredients and tap steps as you cook, progress is saved on this device</footer>
+</div>
+<script>const K='ck:'+location.pathname,B=[...document.querySelectorAll('.ing input')],S=[...document.querySelectorAll('.steps li')],d=JSON.parse(localStorage.getItem(K)||'{"i":[],"s":[]}');B.forEach((b,i)=>{b.checked=d.i.includes(i);b.onchange=sv});S.forEach((s,i)=>{d.s.includes(i)&&s.classList.add('done');s.onclick=()=>{s.classList.toggle('done');sv()}});function sv(){localStorage.setItem(K,JSON.stringify({i:B.flatMap((b,i)=>b.checked?[i]:[]),s:S.flatMap((s,i)=>s.classList.contains('done')?[i]:[])}))}</script>
+<script>const cb=document.getElementById('cookbtn');let wl=null;async function wake(on){try{if(on){wl=await navigator.wakeLock.request('screen')}else if(wl){await wl.release();wl=null}}catch(e){}}cb.addEventListener('click',()=>{const on=document.body.classList.toggle('cook');cb.classList.toggle('on',on);cb.innerHTML=on?'<iconify-icon icon="ph:fire-fill"></iconify-icon>Cooking':'<iconify-icon icon="ph:fire"></iconify-icon>Cook mode';wake(on)});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&document.body.classList.contains('cook'))wake(true)});</script>
+<script src="../feedback.js" defer></script>
+</body></html>

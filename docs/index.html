@@ -7,7 +7,7 @@
 <div class="kicker">Household Cookbook</div>
 <h1>Blackwood <em>Kitchen</em></h1>
 <p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
-<p class="count" id="count">29 recipes &middot; 3 components &middot; the BIR curry reference</p>
+<p class="count" id="count">33 recipes &middot; 3 components &middot; the BIR curry reference</p>
 <a class="planlink" href="this-week.html"><iconify-icon icon="ph:calendar-heart"></iconify-icon>This week's plan &rarr;</a>
 <a class="tonight" id="tonight" href="#"><span class="k">Tonight</span><b id="tonight-meal"></b><span class="arr">&rarr;</span></a>
 </div>
@@ -53,6 +53,12 @@
 <div class="pills"><span class="pill time">30 min off the base</span><span class="pill">curry</span></div>
 </div></a>
 
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry chicken kid" href="recipes/chicken-katsu.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Chicken Katsu</p><p class="chef">Tommy Cole</p>
+<div class="pills"><span class="pill time">1 h + 4 h marinade</span><span class="pill">curry</span><span class="pill">kid friendly</span><span class="pill trial">trial</span></div>
+</div></a>
+
 <a class="rcard" style="--cat:var(--curry)" data-tags="curry fish" href="recipes/red-curry-with-king-prawns.html"><div class="body">
 <div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
 <p class="t">Red Curry with King Prawns</p><p class="chef">Rosa's Thai Cafe</p>
@@ -96,6 +102,12 @@
 <div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
 <p class="t">Shawarma Tahini</p><p class="chef">Brian Lagerstrom</p>
 <div class="pills"><span class="pill time">1 h 30</span><span class="pill">salad</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/tahini-miso-chicken.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bird"></iconify-icon></div>
+<p class="t">Tahini Miso Chicken</p><p class="chef">Tommy Cole</p>
+<div class="pills"><span class="pill time">30 min + 1 h marinade</span><span class="pill">chicken</span><span class="pill trial">trial</span></div>
 </div></a>
 
 <a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/thai-chilli-and-basil-chicken.html"><div class="body">
@@ -188,6 +200,12 @@
 <div class="pills"><span class="pill time">10 min + 1 h marinade</span></div>
 </div></a>
 
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish" href="recipes/miso-glazed-salmon-with-kimchi-fried-rice.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:fish-simple"></iconify-icon></div>
+<p class="t">Miso Glazed Salmon with Kimchi Fried Rice</p><p class="chef">Tommy Cole</p>
+<div class="pills"><span class="pill time">40 min + 6 h marinade</span><span class="pill">korean</span><span class="pill trial">trial</span></div>
+</div></a>
+
 <a class="rcard" style="--cat:var(--fish)" data-tags="fish quick" href="recipes/quick-asian-fishcakes.html"><div class="body">
 <div class="icon"><iconify-icon icon="ph:fish-simple"></iconify-icon></div>
 <p class="t">Quick Asian Fishcakes</p><p class="chef">Jamie Oliver</p>
@@ -208,6 +226,12 @@
 <p class="count">The trial shelf: new recipes earning a permanent spot.</p></div>
 <img src="assets/korean-viet.webp" loading="lazy" alt="Gouache illustration of a steaming bowl of chicken pho with chopsticks, Thai basil, bean sprouts, lime and chilli" width="720" height="480"></div>
 <div class="grid">
+
+<a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/bibimbap.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
+<p class="t">Bibimbap</p><p class="chef">Tommy Cole</p>
+<div class="pills"><span class="pill time">1&frac12; h + overnight marinade</span><span class="pill">korean</span><span class="pill trial">trial</span></div>
+</div></a>
 
 <a class="rcard" style="--cat:var(--chicken)" data-tags="chicken" href="recipes/chicken-pho.html"><div class="body">
 <div class="icon"><iconify-icon icon="ph:bowl-food"></iconify-icon></div>
@@ -312,7 +336,7 @@ function apply(){
     const any=[...sec.querySelectorAll('.rcard')].some(c=>!c.classList.contains('hidden'));
     sec.classList.toggle('hidden',!any);
   });
-  count.textContent=(f==='all'&&!s)?'29 recipes · 3 components · the BIR curry reference':n+' of '+cards.length+' shown';
+  count.textContent=(f==='all'&&!s)?'33 recipes · 3 components · the BIR curry reference':n+' of '+cards.length+' shown';
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
