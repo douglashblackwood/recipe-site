@@ -28,7 +28,7 @@
 </div>
 <script>
 const FEED='https://gist.githubusercontent.com/douglashblackwood/bea2fc791caba3d88676cd19f4b5c182/raw/plan.json';
-const COOKED='https://script.google.com/macros/s/AKfycbz-8XP_sdijbn3JG071F_ebCCh7NFSdXZ2ujYhpWRJWGI-1WH-1AzB5nC7SsSCsFSVo8Q/exec?cooked=1&since=';
+const COOKED='https://tsyqmdozrlqotcjkinxk.supabase.co/functions/v1/recipe-feedback?cooked=1&since=';
 const status=document.getElementById('status'),list=document.getElementById('pool'),range=document.getElementById('range'),left=document.getElementById('left');
 const parse=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 fetch(FEED,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(p=>{

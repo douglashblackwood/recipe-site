@@ -5,7 +5,7 @@
    opaque (no-cors) so submission is optimistic. The token is a spam guard,
    not a secret. No data is stored on this site. */
 (function () {
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbz-8XP_sdijbn3JG071F_ebCCh7NFSdXZ2ujYhpWRJWGI-1WH-1AzB5nC7SsSCsFSVo8Q/exec';
+  var ENDPOINT = 'https://tsyqmdozrlqotcjkinxk.supabase.co/functions/v1/recipe-feedback'; // household platform (was Apps Script until 02/09/2026)
   var TOKEN = 'bk-d8edbb0c-55ee';
 
   var wrap = document.querySelector('.wrap') || document.body;
