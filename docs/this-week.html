@@ -27,17 +27,16 @@
 <footer>Part of the <a href="index.html">household cookbook</a> &middot; a new pool is published each week</footer>
 </div>
 <script>
-const FEED='https://gist.githubusercontent.com/douglashblackwood/bea2fc791caba3d88676cd19f4b5c182/raw/plan.json';
-const COOKED='https://tsyqmdozrlqotcjkinxk.supabase.co/functions/v1/recipe-feedback?cooked=1&since=';
+const FEED='https://tsyqmdozrlqotcjkinxk.supabase.co/functions/v1/recipe-feedback?this_week=1'; // household platform: published pool + cooked ids
 const status=document.getElementById('status'),list=document.getElementById('pool'),range=document.getElementById('range'),left=document.getElementById('left');
 const parse=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 fetch(FEED,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(p=>{
+  if(!p.week_of){status.textContent='No pool published yet.';return}
   const start=parse(p.week_of);
   const end=new Date(start);end.setDate(end.getDate()+6);
   range.textContent='Week of '+start.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+' to '+end.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+'. Cook any of these on any night; they drop off as they’re cooked.';
   if(!p.pool||!p.pool.length){status.textContent='No pool published for this week yet.';return}
-  // cooked state is best-effort: pool still renders if the endpoint is slow/down
-  fetch(COOKED+p.week_of,{cache:'no-cache'}).then(r=>r.json()).then(c=>render(p,c.cooked||[])).catch(()=>render(p,[]));
+  render(p,p.cooked||[]);
 }).catch(e=>{status.textContent='Couldn’t load the pool feed ('+e.message+'). Check the connection and reload.'});
 function render(p,cooked){
   status.remove();
