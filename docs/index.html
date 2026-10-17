@@ -7,7 +7,7 @@
 <div class="kicker">Household Cookbook</div>
 <h1>Blackwood <em>Kitchen</em></h1>
 <p class="sub">Every house recipe in one place, built for the phone propped up next to the hob. Tick ingredients and tap steps as you go.</p>
-<p class="count" id="count">33 recipes &middot; 3 components &middot; the BIR curry reference</p>
+<p class="count" id="count">35 recipes &middot; 3 components &middot; the BIR curry reference</p>
 <a class="planlink" href="this-week.html"><iconify-icon icon="ph:calendar-heart"></iconify-icon>This week's plan &rarr;</a>
 <a class="tonight" id="tonight" href="#"><span class="k">Tonight</span><b id="tonight-meal"></b><span class="arr">&rarr;</span></a>
 </div>
@@ -63,6 +63,12 @@
 <div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
 <p class="t">Red Curry with King Prawns</p><p class="chef">Rosa's Thai Cafe</p>
 <div class="pills"><span class="pill time">50 min</span><span class="pill">curry</span></div>
+</div></a>
+
+<a class="rcard" style="--cat:var(--curry)" data-tags="curry" href="recipes/rice-noodles-with-chickpea-red-curry-sauce.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:cooking-pot"></iconify-icon></div>
+<p class="t">Rice Noodles with Chickpea Red Curry Sauce</p><p class="chef">Rosa's Thai Cafe</p>
+<div class="pills"><span class="pill time">25 min</span><span class="pill">curry</span><span class="pill trial">trial</span></div>
 </div></a>
 
 <a class="rcard" style="--cat:var(--curry)" data-tags="curry veggie kid" href="recipes/vegan-red-lentil-curry.html"><div class="body">
@@ -207,6 +213,12 @@
 <div class="pills"><span class="pill time">35 min</span><span class="pill">quick</span></div>
 </div></a>
 
+<a class="rcard" style="--cat:var(--fish)" data-tags="fish" href="recipes/tamarind-prawns.html"><div class="body">
+<div class="icon"><iconify-icon icon="ph:shrimp"></iconify-icon></div>
+<p class="t">Tamarind Prawns</p><p class="chef">Gordon Ramsay</p>
+<div class="pills"><span class="pill time">45 min</span><span class="pill trial">trial</span></div>
+</div></a>
+
 <a class="rcard" style="--cat:var(--fish)" data-tags="fish" href="recipes/un-composed-nicoise-salad.html"><div class="body">
 <div class="icon"><iconify-icon icon="ph:fish"></iconify-icon></div>
 <p class="t">Un-Composed Ni&ccedil;oise Salad</p><p class="chef">Serious Eats</p>
@@ -331,7 +343,7 @@ function apply(){
     const any=[...sec.querySelectorAll('.rcard')].some(c=>!c.classList.contains('hidden'));
     sec.classList.toggle('hidden',!any);
   });
-  count.textContent=(f==='all'&&!s)?'33 recipes · 3 components · the BIR curry reference':n+' of '+cards.length+' shown';
+  count.textContent=(f==='all'&&!s)?'35 recipes · 3 components · the BIR curry reference':n+' of '+cards.length+' shown';
 }
 chips.forEach(ch=>ch.onclick=()=>{chips.forEach(x=>x.classList.remove('on'));ch.classList.add('on');f=ch.dataset.f;apply();});
 q.addEventListener('input',apply);
